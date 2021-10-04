@@ -25,6 +25,7 @@
 
 > 결국 프로그래밍을 잘 할 수 있는 기술과 역량을 익히고, 검증할 수 있음
 
+---
 # 배열(Array)
 
 - 데이터를 나열하고, 각 데이터를 인덱스에 대응하도록 구성한 데이터 구조
@@ -57,3 +58,4 @@ ArrayList<Integer> list1 = new ArrayList<Integer>();
        List<Integer> list1 = new ArrayList<Integer>();
        list1 = new LinkedList<Integer>();
     ```
+---
