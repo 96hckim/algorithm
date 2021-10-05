@@ -11,6 +11,7 @@ public class AplusB {
 
     int a = Integer.parseInt(scan.next());
     int b = Integer.parseInt(scan.next());
+    scan.close();
 
     System.out.print(a+b);
 
