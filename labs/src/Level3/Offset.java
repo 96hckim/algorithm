@@ -13,70 +13,36 @@ public class Offset {
         int row = 5;
         int column = 5;
 
-        String[][] arr = new String[row][column];
+        int[][] arr = new int[row + 2][column + 2];
 
-        for (int i = 0; i < row; i++) {
+        for (int i = 1; i < arr.length - 1; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < column; j++) {
-                arr[i][j] = st.nextToken();
+            for (int j = 1; j < arr[0].length - 1; j++) {
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        for (int i = 0; i < row; i++) {
-            int bottom = i + 1;
-            int top = i - 1;
+        for (int i = 0; i < arr.length; i++) {
+            arr[0][i] = 10;
+            arr[6][i] = 10;
+            arr[i][0] = 10;
+            arr[i][6] = 10;
+        }
 
-            for (int j = 0; j < column; j++) {
-                int count = 0;
-                int currentValue = Integer.parseInt(arr[i][j]);
-                int left = j - 1;
-                int right = j + 1;
+        for (int i = 1; i <= arr.length - 2; i++) {
+            for (int j = 1; j <= arr[0].length - 2; j++) {
+                int value = arr[i][j];
 
-                if (bottom < row) {
-                    if (!arr[bottom][j].equals("*")) {
-                        if (currentValue < Integer.parseInt(arr[bottom][j])) {
-                            count++;
-                        }
-                    }
+                int top = arr[i - 1][j];
+                int bottom = arr[i + 1][j];
+                int left = arr[i][j - 1];
+                int right = arr[i][j + 1];
+
+                if (top > value && bottom > value && left > value && right > value) {
+                    bw.write("* ");
                 } else {
-                    count++;
+                    bw.write(value + " ");
                 }
-
-                if (top >= 0) {
-                    if (!arr[top][j].equals("*")) {
-                        if (currentValue < Integer.parseInt(arr[top][j])) {
-                            count++;
-                        }
-                    }
-                } else {
-                    count++;
-                }
-
-                if (right < column) {
-                    if (!arr[i][right].equals("*")) {
-                        if (currentValue < Integer.parseInt(arr[i][right])) {
-                            count++;
-                        }
-                    }
-                } else {
-                    count++;
-                }
-
-                if (left >= 0) {
-                    if (!arr[i][left].equals("*")) {
-                        if (currentValue < Integer.parseInt(arr[i][left])) {
-                            count++;
-                        }
-                    }
-                } else {
-                    count++;
-                }
-
-                if (count == 4) {
-                    arr[i][j] = "*";
-                }
-
-                bw.write(arr[i][j] + " ");
             }
 
             bw.newLine();
