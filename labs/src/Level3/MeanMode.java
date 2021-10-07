@@ -31,6 +31,7 @@ public class MeanMode {
 
         bw.write(mean + "\n" + mode);
 
+        br.close();
         bw.flush();
         bw.close();
 

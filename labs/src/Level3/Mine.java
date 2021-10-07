@@ -43,6 +43,7 @@ public class Mine {
             bw.write(count + "");
         }
 
+        br.close();
         bw.flush();
         bw.close();
 
