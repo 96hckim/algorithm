@@ -70,7 +70,6 @@ public class Tetris {
         int horizontalCount = 0;
         int score = 0;
 
-
         String[][] tetrisCopyArray = new String[tetrisArray.length][tetrisArray[0].length];
         for (int i = 0; i < tetrisArray.length; i++) {
             tetrisCopyArray[i] = tetrisArray[i].clone();
