@@ -53,7 +53,6 @@ public class Bingo {
             }
         }
 
-
         br.close();
         bw.flush();
         bw.close();
