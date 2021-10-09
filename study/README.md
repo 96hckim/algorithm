@@ -59,3 +59,28 @@ ArrayList<Integer> list1 = new ArrayList<Integer>();
        list1 = new LinkedList<Integer>();
     ```
 ---
+---
+# 큐 (Queue)
+
+* 줄을 서는 행위와 유사
+* 가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있는 구조
+  - 음식점에서 가장 먼저 줄을 선 사람이 제일 먼저 음식점에 입장하는 것과 동일
+  - FIFO(First-In, First-Out) 또는 LILO(Last-In, Last-Out) 방식으로 스택과 꺼내는 순서가 반대
+
+<img src="https://www.fun-coding.org/00_Images/queue.png" />
+* 출처: http://www.stoimen.com/blog/2012/06/05/computer-algorithms-stack-and-queue-data-structure/
+
+### 알아둘 용어
+
+* Enqueue: 큐에 데이터를 넣는 기능
+* Dequeue: 큐에서 데이터를 꺼내는 기능
+
+### 3. JAVA 에서의 큐 자료 구조 사용하기
+* JAVA 에서는 기본적으로 java.util 패키지에 Queue 클래스를 제공하고 있음
+  - Enqueue 에 해당하는 기능으로 Queue 클래스에서는 add(value) 또는 offer(value) 메서드를 제공함
+  - Dequeue 에 해당하는 기능으로 Queue 클래스에서는 poll() 또는 remove() 메서드를 제공함
+  - Queue 클래스에 데이터 생성을 위해서는 java.util 패키지에 있는 LinkedList 클래스를 사용해야 함
+
+### 참고: 어디에 큐가 많이 쓰일까?
+- 멀티 태스킹을 위한 프로세스 스케쥴링 방식을 구현하기 위해 많이 사용됨
+---
