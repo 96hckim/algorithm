@@ -58,7 +58,7 @@ ArrayList<Integer> list1 = new ArrayList<Integer>();
        List<Integer> list1 = new ArrayList<Integer>();
        list1 = new LinkedList<Integer>();
     ```
----
+
 ---
 # 큐 (Queue)
 
@@ -76,11 +76,12 @@ ArrayList<Integer> list1 = new ArrayList<Integer>();
 * Dequeue: 큐에서 데이터를 꺼내는 기능
 
 ### 3. JAVA 에서의 큐 자료 구조 사용하기
+
 * JAVA 에서는 기본적으로 java.util 패키지에 Queue 클래스를 제공하고 있음
   - Enqueue 에 해당하는 기능으로 Queue 클래스에서는 add(value) 또는 offer(value) 메서드를 제공함
   - Dequeue 에 해당하는 기능으로 Queue 클래스에서는 poll() 또는 remove() 메서드를 제공함
   - Queue 클래스에 데이터 생성을 위해서는 java.util 패키지에 있는 LinkedList 클래스를 사용해야 함
 
 ### 참고: 어디에 큐가 많이 쓰일까?
+
 - 멀티 태스킹을 위한 프로세스 스케쥴링 방식을 구현하기 위해 많이 사용됨
----
