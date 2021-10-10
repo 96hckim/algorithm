@@ -81,7 +81,21 @@
 - 1부터 n까지의 합을 구하는 알고리즘1
   - 입력 n에 따라 덧셈을 n 번 해야 함 (반복문!)
   - 시간 복잡도: n, 빅 오 표기법으로는 **O(n)**
+  ```java
+        public int sum(int n) {
+            int total = 0;
+            for (int i = 1; i <= n; i++) {
+                total += i;
+            }
+            return total;
+        }
+  ```
 
 * 1부터 n까지의 합을 구하는 알고리즘2
   - 입력 n이 어떻든 간에, 곱셈/덧셈/나눗셈 하면 됨 (반복문이 없음!)
   - 시간 복잡도: 1, 빅 오 표기법으로는 **O(1)**
+  ```java
+        public int sum(int n) {
+          return n * (n + 1) / 2;
+        }
+  ```
