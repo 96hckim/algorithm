@@ -18,15 +18,15 @@ public class MeanMode {
             modeArr[value / 10]++;
         }
 
-        int mean = sum / 10;
-
         int maxIndex = 0;
+
         for (int i = 0; i < modeArr.length; i++) {
             if (modeArr[i] > modeArr[maxIndex]) {
                 maxIndex = i;
             }
         }
 
+        int mean = sum / 10;
         int mode = maxIndex * 10;
 
         bw.write(mean + "\n" + mode);
