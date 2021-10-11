@@ -75,6 +75,7 @@ public class Bingo {
             bingoCount++;
         }
 
+        // 초기화
         XCount = 0;
 
         // 세로
