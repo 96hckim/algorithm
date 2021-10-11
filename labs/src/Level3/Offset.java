@@ -32,7 +32,6 @@ public class Offset {
         for (int i = 1; i <= arr.length - 2; i++) {
             for (int j = 1; j <= arr[0].length - 2; j++) {
                 int value = arr[i][j];
-
                 int top = arr[i - 1][j];
                 int bottom = arr[i + 1][j];
                 int left = arr[i][j - 1];
