@@ -22,6 +22,7 @@ public class Tetris {
             }
         }
 
+        // 최고점 "좌표 점수"
         String highestScore = "0 0";
 
         for (int i = 0; i < c; i++) {
