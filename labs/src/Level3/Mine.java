@@ -34,9 +34,11 @@ public class Mine {
 
             for (int i = 0; i <= 2; i++) {
                 for (int j = 0; j <= 2; j++) {
+
                     if (arr[x + i - 1][y + j - 1] == 1) {
                         count++;
                     }
+
                 }
             }
 
