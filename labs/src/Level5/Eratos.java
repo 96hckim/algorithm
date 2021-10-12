@@ -3,6 +3,9 @@ package Level5;
 import java.io.*;
 import java.util.Arrays;
 
+/**
+ * N 까지 소수 구하기
+ */
 public class Eratos {
 
     public static void main(String[] args) throws IOException {
