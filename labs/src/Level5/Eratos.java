@@ -13,18 +13,19 @@ public class Eratos {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        boolean[] arr = new boolean[1001];
+        int num = Integer.parseInt(br.readLine());
+        boolean[] arr = new boolean[num + 1];
 
         Arrays.fill(arr, true);
         arr[0] = arr[1] = false;
 
-        for (int i = 2; i <= Math.sqrt(arr.length - 1); i++) {
-            for (int j = i * i; j <= arr.length - 1; j += i) {
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            for (int j = i * i; j <= num; j += i) {
                 arr[j] = false;
             }
         }
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i <= num; i++) {
             if (arr[i]) {
                 bw.write(i + " ");
             }
