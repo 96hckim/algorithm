@@ -1,4 +1,4 @@
-package Level5;
+package Level5.example;
 
 import java.io.*;
 import java.util.Arrays;
