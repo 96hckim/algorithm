@@ -3,7 +3,7 @@ package Level7.example;
 import java.util.Scanner;
 
 /**
- * 이진수 출력하기
+ * 10진수 n의 2진수 출력
  */
 public class PrintBinaryNumber {
 
