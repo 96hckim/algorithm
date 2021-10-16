@@ -41,8 +41,47 @@ public class BubbleSort {
 }
 ```
 
-### 5. 알고리즘 분석
+### 분석
 
 - 반복문이 두 개 O($n^2$)
   - 최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
 - 완전 정렬이 되어 있는 상태라면 최선은 O(n)
+
+---
+
+# 선택 정렬 (selection sort)
+
+- 다음과 같은 순서를 반복하며 정렬하는 알고리즘
+  1. 주어진 데이터 중, 최소값을 찾음
+  2. 해당 최소값을 데이터 맨 앞에 위치한 값과 교체함
+  3. 맨 앞의 위치를 뺀 나머지 데이터를 동일한 방법으로 반복함
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Selection-Sort-Animation.gif" width=100>
+
+### 구현
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SelectionSort {
+    public ArrayList<Integer> sort(ArrayList<Integer> dataList) {
+        int lowest;
+        for (int stand = 0; stand < dataList.size() - 1; stand++) {
+            lowest = stand;
+            for (int index = stand + 1; index < dataList.size(); index++) {
+                if (dataList.get(lowest) > dataList.get(index)) {
+                    lowest = index;
+                }
+            }
+            Collections.swap(dataList, lowest, stand);
+        }
+        return dataList;
+    }
+}
+```
+
+### 분석
+
+- 반복문이 두 개 O($n^2$)
+  - 실제로 상세하게 계산하면, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
