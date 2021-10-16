@@ -99,3 +99,58 @@
           return n * (n + 1) / 2;
         }
   ```
+
+---
+
+# 공간 복잡도
+
+- 프로그램을 실행 및 완료하는데 필요한 저장공간의 양을 뜻함
+- 총 필요 저장 공간
+  - 고정 공간 (알고리즘과 무관한 공간): 코드 저장 공간, 단순 변수 및 상수
+  - 가변 공간 (알고리즘 실행과 관련있는 공간): 실행 중 동적으로 필요한 공간
+  - $ S(P) = c + S_p(n) $
+    - c: 고정 공간
+    - $ S_p(n) $: 가변 공간
+
+> 빅 오 표기법을 생각해볼 때, 고정 공간은 상수이므로 공간 복잡도는 가변 공간예 좌우됨
+
+### 공간 복잡도 예제1
+
+- n! 팩토리얼 구하기
+  - n! = 1 x 2 x ... x n
+- n의 값에 상관없이 변수 n, 변수 fac, 변수 index 만 필요함
+- 공간 복잡도는 O(1)
+
+> 공간 복잡도 계산은 실제 알고리즘 실행시 사용되는 저장공간을 계산하면 됨
+
+```java
+public class Factorial {
+    public int factorialFunc(int n) {
+        int fac = 1;
+        for (int index = 2; index < n + 1; index++) {
+            fac = fac * index;
+        }
+        return fac;
+    }
+}
+```
+
+### 공간 복잡도 예제2
+
+- n! 팩토리얼 구하기
+  - n! = 1 x 2 x ... x n
+- 재귀함수를 사용하였으므로, n에 따라, 변수 n이 n개가 만들어지게 됨
+  - factorial 함수를 재귀 함수로 1까지 호출하였을 경우, n부터 1까지 스택에 쌓이게 됨
+- 공간 복잡도는 O(n)
+
+```java
+public class Factorial {
+    public int factorialFunc(int n) {
+        if (n > 1) {
+            return n * factorialFunc(n - 1);
+        } else {
+            return 1;
+        }
+    }
+}
+```
