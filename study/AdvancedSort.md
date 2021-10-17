@@ -96,3 +96,60 @@ public class MergeSort {
     - 따라서, 단계별 시간 복잡도 O(n) \* O(log n) = O(n log n)
 
 <img src="https://www.fun-coding.org/00_Images/mergesortcomplexity.png" />
+
+---
+
+# 퀵 정렬 (quick sort)
+
+- 기준점(pivot 이라고 부름)을 정해서, 기준점보다 작은 데이터는 왼쪽(left), 큰 데이터는 오른쪽(right) 으로 모으는 함수를 작성함
+- 각 왼쪽(left), 오른쪽(right)은 재귀용법을 사용해서 다시 동일 함수를 호출하여 위 작업을 반복함
+- 함수는 왼쪽(left) + 기준점(pivot) + 오른쪽(right) 을 리턴함
+
+### 알고리즘 구현
+
+- QuickSort.sort() 함수 만들기
+  - 만약 리스트 갯수가 한개이면 해당 리스트 리턴
+  - 그렇지 않으면, 리스트 맨 앞의 데이터를 기준점(pivot)으로 놓기
+  - left, right 리스트 변수를 만들고,
+  - 맨 앞의 데이터를 뺀 나머지 데이터를 기준점과 비교(pivot)
+    - 기준점보다 작으면 left.add(해당 데이터)
+    - 기준점보다 크면 right.add(해당 데이터)
+  - 결국 QuickSort.sort(left) + pivot + QuickSort.sort(right) 을 리턴하는 방식으로 재귀 호출
+
+```java
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class QuickSort {
+    public ArrayList<Integer> sort(ArrayList<Integer> dataList) {
+        if (dataList.size() <= 1) {
+            return dataList;
+        }
+        int pivot = dataList.get(0);
+
+        ArrayList<Integer> leftArr = new ArrayList<Integer>();
+        ArrayList<Integer> rightArr = new ArrayList<Integer>();
+
+        for (int index = 1; index < dataList.size(); index++) {
+            if (dataList.get(index) > pivot) {
+                rightArr.add(dataList.get(index));
+            } else {
+                leftArr.add(dataList.get(index));
+            }
+        }
+
+        ArrayList<Integer> mergedArr = new ArrayList<Integer>();
+        mergedArr.addAll(this.sort(leftArr));
+        mergedArr.addAll(Arrays.asList(pivot));
+        mergedArr.addAll(this.sort(rightArr));
+
+        return mergedArr;
+    }
+}
+```
+
+### 알고리즘 분석
+
+- <font color='#BF360C'>병합정렬과 유사, 시간복잡도는 O(n log n)</font>
+  - 단, 최악의 경우 - 이미 정렬된 배열에서 pivot이 가장 크거나, 가장 작으면 가장 큰 시간이 소요됨 - 모든 데이터를 비교하는 상황이 나옴 - O($n^2$)
+    <img src="https://www.fun-coding.org/00_Images/quicksortworks.jpg" />
