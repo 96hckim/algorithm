@@ -21,15 +21,6 @@
 
 <img src="https://www.fun-coding.org/00_Images/bfsgraph.png" width=700>
 
-# 너비 우선 탐색 (Breadth-First Search)
-
-### 알고리즘 구현
-
-- 자료구조 큐를 활용함
-  - needVisit 큐와 visited 큐, 두 개의 큐를 생성
-
-<img src="https://www.fun-coding.org/00_Images/bfsqueue.png" width=700>
-
 ```java
 HashMap<String, ArrayList<String>> graph = new HashMap<String, ArrayList<String>>();
 
@@ -44,6 +35,15 @@ graph.put("H", new ArrayList<String>(Arrays.asList("C")));
 graph.put("I", new ArrayList<String>(Arrays.asList("C", "J")));
 graph.put("J", new ArrayList<String>(Arrays.asList("I")));
 ```
+
+# 너비 우선 탐색 (Breadth-First Search)
+
+### 알고리즘 구현
+
+- 자료구조 큐를 활용함
+  - needVisit 큐와 visited 큐, 두 개의 큐를 생성
+
+<img src="https://www.fun-coding.org/00_Images/bfsqueue.png" width=700>
 
 ```java
 import java.util.ArrayList;
@@ -75,4 +75,43 @@ public class BFSSearch {
   - 노드 수: V
   - 간선 수: E
     - 위 코드에서 while needVisit 은 V + E 번 만큼 수행함
+  - 시간 복잡도: O(V + E)
+
+---
+
+# 깊이 우선 탐색 (Depth-First Search)
+
+### 알고리즘 구현
+
+- 자료구조 스택과 큐를 활용함
+  - needVisit 스택과 visited 큐, 두 개의 자료 구조를 생성
+
+<img src="https://www.fun-coding.org/00_Images/dfsgraph.png" width=700>
+
+```java
+public class DFSSearch {
+    public ArrayList<String> dfsFunc(HashMap<String, ArrayList<String>> graph, String startNode) {
+        ArrayList<String> visited = new ArrayList<String>();
+        ArrayList<String> needVisit = new ArrayList<String>();
+
+        needVisit.add(startNode);
+
+        while (needVisit.size() > 0) {
+            String node = needVisit.remove(needVisit.size() - 1); // BFS와 이 부분만 다름 (큐 -> 스택)
+            if (!visited.contains(node)) {
+                visited.add(node);
+                needVisit.addAll(graph.get(node));
+            }
+        }
+        return visited;
+    }
+}
+```
+
+### 시간 복잡도
+
+- 일반적인 DFS 시간 복잡도
+  - 노드 수: V
+  - 간선 수: E
+    - 위 코드에서 while need_visit 은 V + E 번 만큼 수행함
   - 시간 복잡도: O(V + E)
