@@ -1,14 +1,13 @@
 package level10;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class CountingNumbers {
 
-    private static ArrayList<Integer> searchTargetList;
-    private static int count = 0;
+    private static int n;
+    private static int[] numberArray;
 
     public static void main(String[] args) throws IOException {
 
@@ -16,26 +15,28 @@ public class CountingNumbers {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
         int q = Integer.parseInt(st.nextToken());
 
-        searchTargetList = new ArrayList<>(n);
+        numberArray = new int[n];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            searchTargetList.add(Integer.parseInt(st.nextToken()));
+            numberArray[i] = Integer.parseInt(st.nextToken());
         }
 
-        Collections.sort(searchTargetList);
+        Arrays.sort(numberArray);
 
-        ArrayList<Integer> searchItemList = new ArrayList<>(q);
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < q; i++) {
-            searchItemList.add(Integer.parseInt(st.nextToken()));
-        }
+            int searchItem = Integer.parseInt(st.nextToken());
 
-        for (int i = 0; i < q; i++) {
-            int numbers = countEqualNumbers(searchItemList.get(i));
-            bw.write(numbers + "\n");
+            int start = findStart(searchItem);
+            if (start == -1) {
+                bw.write("0\n");
+                continue;
+            }
+            int end = findEnd(searchItem);
+            bw.write(end - start + 1 + "\n");
         }
 
         br.close();
@@ -44,67 +45,58 @@ public class CountingNumbers {
 
     }
 
-    private static int countEqualNumbers(int searchItem) {
+    private static int findStart(int searchItem) {
 
-        if (searchTargetList.size() == 1 && searchItem != searchTargetList.get(0)) {
-            return 0;
+        int start, end;
+
+        if (numberArray[0] < searchItem) start = 0;
+        else {
+            if (numberArray[0] > searchItem) return -1;
+            else return 0;
         }
 
-        if (searchTargetList.size() == 1 && searchItem == searchTargetList.get(0)) {
-            return 1;
-        }
+        if (numberArray[n - 1] >= searchItem) end = n - 1;
+        else return -1;
 
-        count = 0;
-        int start = 0;
-        int end = searchTargetList.size() - 1;
+        while (start + 1 < end) {
 
-        while (true) {
+            int median = (start + end) / 2;
 
-            if (start > end) {
-                return 0;
-            }
-
-            if (start == end) {
-                if (searchTargetList.get(start) == searchItem) return 1;
-                else return 0;
-            }
-
-            int medianIndex = (start + end) / 2;
-            int medianValue = searchTargetList.get(medianIndex);
-
-            if (searchItem == medianValue) {
-                count++;
-                findNext(searchItem, medianIndex + 1);
-                findPrevious(searchItem, medianIndex - 1);
-                return count;
-            } else {
-                if (searchItem < medianValue) {
-                    end = medianIndex - 1;
-                } else {
-                    start = medianIndex + 1;
-                }
-            }
+            if (numberArray[median] < searchItem) start = median;
+            else end = median;
 
         }
+
+        if (numberArray[end] == searchItem) return end;
+        else return -1;
 
     }
 
-    private static void findNext(int searchItem, int index) {
-        if (index >= searchTargetList.size()) return;
+    private static int findEnd(int searchItem) {
 
-        if (searchTargetList.get(index) == searchItem) {
-            count++;
-            findNext(searchItem, index + 1);
+        int start, end;
+
+        if (numberArray[0] <= searchItem) start = 0;
+        else return -1;
+
+        if (numberArray[n - 1] > searchItem) end = n - 1;
+        else {
+            if (numberArray[n - 1] < searchItem) return -1;
+            else return n - 1;
         }
-    }
 
-    private static void findPrevious(int searchItem, int index) {
-        if (index < 0) return;
+        while (start + 1 < end) {
 
-        if (searchTargetList.get(index) == searchItem) {
-            count++;
-            findPrevious(searchItem, index - 1);
+            int median = (start + end) / 2;
+
+            if (numberArray[median] <= searchItem) start = median;
+            else end = median;
+
         }
+
+        if (numberArray[start] == searchItem) return start;
+        else return -1;
+
     }
 
 }
