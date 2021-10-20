@@ -1,59 +1,59 @@
 package level8;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dessert {
 
     private static int n;
-    private static int resultCount = 0;
-    private static String[] napkinArray = {"+", "-", "."};
-    private static ArrayList<String> napkinList = new ArrayList<>();
-    private static ArrayList<Integer> numberList;
+    private static String[] napkinArray;
+    private static final String[] napkinTypeArray = {"+", "-", "."};
+    private static int count = 0;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner scan = new Scanner(System.in);
         n = scan.nextInt();
+        napkinArray = new String[n - 1];
 
-        printResult(1);
-        System.out.println(resultCount);
+        dessert(0);
+        System.out.println(count);
 
     }
 
-    private static void printResult(int number) {
+    private static void dessert(int x) {
 
-        if (number == n) {
+        if (x == n - 1) {
 
-            // 숫자 배열 초기화
-            numberList = new ArrayList<>();
+            ArrayList<Integer> numberList = new ArrayList<>();
             numberList.add(1);
 
-            // (.) 숫자 합쳐줌
-            for (int i = 0; i < napkinList.size(); i++) {
-                if (napkinList.get(i).equals(".")) {
-                    int prevNum = numberList.get(numberList.size() - 1);
+            for (int i = 0; i < n - 1; i++) {
+                if (napkinArray[i].equals(".")) {
+                    String combineString = numberList.get(numberList.size() - 1) + "" + (i + 2);
+                    if (combineString.length() >= 10) return;
+
                     numberList.remove(numberList.size() - 1);
-                    String connectString = prevNum + "" + (i + 2);
-                    if (connectString.length() >= 10) return;
-                    numberList.add(Integer.parseInt(connectString));
+                    numberList.add(Integer.parseInt(combineString));
                 } else {
                     numberList.add(i + 2);
                 }
+
             }
 
-            // 합계
             int sum = numberList.get(0);
+            int i = 1;
 
-            for (int i = 0, x = 1; i < napkinList.size(); i++) {
-                switch (napkinList.get(i)) {
+            for (String napkin : napkinArray) {
+                switch (napkin) {
                     case "+":
-                        sum += numberList.get(x);
-                        x++;
+                        sum += numberList.get(i);
+                        i++;
                         break;
                     case "-":
-                        sum -= numberList.get(x);
-                        x++;
+                        sum -= numberList.get(i);
+                        i++;
                         break;
                     default:
                         break;
@@ -61,29 +61,31 @@ public class Dessert {
             }
 
             if (sum == 0) {
-                resultCount++;
-                // 20줄만 출력
-                if (resultCount <= 20) {
+                count++;
+
+                if (count <= 20) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(1);
-                    for (int i = 0; i < napkinList.size(); i++) {
+
+                    for (int j = 0; j < napkinArray.length; j++) {
                         sb.append(" ")
-                                .append(napkinList.get(i))
+                                .append(napkinArray[j])
                                 .append(" ")
-                                .append(i + 2);
+                                .append(j + 2);
                     }
+
                     System.out.println(sb);
                 }
             }
 
         } else {
 
-            for (int i = 0; i < napkinArray.length; i++) {
-                napkinList.add(napkinArray[i]);
-                number++;
-                printResult(number);
-                number--;
-                napkinList.remove(napkinList.size() - 1);
+            for (int i = 0; i < 3; i++) {
+                napkinArray[x] = napkinTypeArray[i];
+
+                x++;
+                dessert(x);
+                x--;
             }
 
         }
