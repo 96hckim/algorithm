@@ -1,8 +1,7 @@
 package level10;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class TwoSolutions {
@@ -13,35 +12,34 @@ public class TwoSolutions {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-        ArrayList<Integer> solutions = new ArrayList<>();
+        int[] solutions = new int[n];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            solutions.add(Integer.parseInt(st.nextToken()));
+            solutions[i] = Integer.parseInt(st.nextToken());
         }
 
-        Collections.sort(solutions);
+        Arrays.sort(solutions);
 
-        int start = 0;
-        int end = solutions.size() - 1;
-        int min = Integer.MAX_VALUE;
         int result1 = 0;
         int result2 = 0;
+        int min = Integer.MAX_VALUE;
 
-        while (start < end) {
+        for (int i = 0; i < solutions.length - 1; i++) {
 
-            int sum = solutions.get(start) + solutions.get(end);
+            int start = i + 1;
+            int end = solutions.length - 1;
+            int searchItem = solutions[i] * -1;
 
-            if (min > Math.abs(sum)) {
-                min = Math.abs(sum);
+            int idx = binarySearch(solutions, start, end, searchItem);
+            int sum = Math.abs(solutions[i] + solutions[idx]);
 
-                result1 = solutions.get(start);
-                result2 = solutions.get(end);
+            if (sum < min) {
+                result1 = solutions[i];
+                result2 = solutions[idx];
 
                 if (sum == 0) break;
+                else min = sum;
             }
-
-            if (sum < 0) start++;
-            else end--;
 
         }
 
@@ -50,6 +48,41 @@ public class TwoSolutions {
         br.close();
         bw.flush();
         bw.close();
+
+    }
+
+    private static int binarySearch(int[] solutions, int start, int end, int searchItem) {
+
+        int smallerIdx = start;
+        int biggerIdx = end;
+
+        do {
+
+            int medianIdx = (smallerIdx + biggerIdx) / 2;
+
+            if (solutions[medianIdx] == searchItem) {
+                return medianIdx;
+            } else {
+                if (solutions[medianIdx] < searchItem) {
+                    smallerIdx = medianIdx + 1;
+                } else {
+                    biggerIdx = medianIdx - 1;
+                }
+            }
+
+        } while (smallerIdx <= biggerIdx);
+
+        if (smallerIdx > end) {
+            return biggerIdx;
+        } else if (biggerIdx < start) {
+            return smallerIdx;
+        }
+
+        if (Math.abs(searchItem - solutions[smallerIdx]) < Math.abs(searchItem - solutions[biggerIdx])) {
+            return smallerIdx;
+        } else {
+            return biggerIdx;
+        }
 
     }
 
