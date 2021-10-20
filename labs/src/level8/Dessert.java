@@ -24,12 +24,12 @@ public class Dessert {
 
     private static void dessert(int x) {
 
-        if (x == n - 1) {
+        if (x == napkinArray.length) {
 
             ArrayList<Integer> numberList = new ArrayList<>();
             numberList.add(1);
 
-            for (int i = 0; i < n - 1; i++) {
+            for (int i = 0; i < napkinArray.length; i++) {
                 if (napkinArray[i].equals(".")) {
                     String combineString = numberList.get(numberList.size() - 1) + "" + (i + 2);
                     if (combineString.length() >= 10) return;
