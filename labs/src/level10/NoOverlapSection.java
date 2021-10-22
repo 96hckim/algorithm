@@ -56,31 +56,31 @@ public class NoOverlapSection {
     private static boolean isOverlap(int r) {
 
         int idx = 0;
-        int countMoreTwo = 0;
+        int countMoreThanTwo = 0;
         int[] countArray = new int[n + 1];
         for (int i = idx; i < idx + r; i++) {
             countArray[numberArray[i]]++;
 
             if (countArray[numberArray[i]] >= 2) {
-                countMoreTwo++;
+                countMoreThanTwo++;
             }
         }
 
-        if (countMoreTwo == 0) return true;
+        if (countMoreThanTwo == 0) return true;
 
         while (idx + r < n) {
 
             countArray[numberArray[idx]]--;
-            if (countArray[numberArray[idx]] >= 1) countMoreTwo--;
+            if (countArray[numberArray[idx]] >= 1) countMoreThanTwo--;
 
             idx++;
 
             countArray[numberArray[idx + r - 1]]++;
             if (countArray[numberArray[idx + r - 1]] >= 2) {
-                countMoreTwo++;
+                countMoreThanTwo++;
             }
 
-            if (countMoreTwo == 0) return true;
+            if (countMoreThanTwo == 0) return true;
 
         }
 
