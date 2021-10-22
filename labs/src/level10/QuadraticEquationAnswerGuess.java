@@ -13,34 +13,25 @@ public class QuadraticEquationAnswerGuess {
 
         long start = 0;
         long end = (long) Math.sqrt(1000000000000000000L);
-        long answer = -1;
 
         while (start + 1 < end) {
             long mid = (start + end) / 2;
-            long check = check(mid, a);
+            long answer = mid * mid + mid;
 
-            if (check == 1) end = mid;
-            else if (check == -1) start = mid;
+            if (answer > a) end = mid;
+            else if (answer < a) start = mid;
             else {
-                answer = mid;
-                break;
+                System.out.println(mid);
+                return;
             }
         }
 
-        if (answer == -1) answer = start;
-
-        bw.write(answer + "");
+        bw.write(start + "");
 
         br.close();
         bw.flush();
         bw.close();
 
-    }
-
-    private static int check(long num, long a) {
-
-        long result = num * num + num;
-        return Long.compare(result, a);
 
     }
 
