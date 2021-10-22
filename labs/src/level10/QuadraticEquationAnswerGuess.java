@@ -16,10 +16,10 @@ public class QuadraticEquationAnswerGuess {
 
         while (start + 1 < end) {
             long mid = (start + end) / 2;
-            long answer = mid * mid + mid;
+            long result = mid * mid + mid;
 
-            if (answer > a) end = mid;
-            else if (answer < a) start = mid;
+            if (result > a) end = mid;
+            else if (result < a) start = mid;
             else {
                 System.out.println(mid);
                 return;
