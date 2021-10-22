@@ -52,9 +52,7 @@ public class CuttingTrees {
 
             if (sum < m) end = mid;
             else if (sum > m) start = mid;
-            else {
-                return mid;
-            }
+            else return mid;
 
         }
 
