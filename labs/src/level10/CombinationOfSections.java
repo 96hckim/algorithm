@@ -64,8 +64,8 @@ public class CombinationOfSections {
             int s = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
 
-            if (min >= s) min = s;
-            if (max <= e) max = e;
+            if (min > s) min = s;
+            if (max < e) max = e;
 
             sections.add(new Section(s, e));
         }
@@ -91,18 +91,15 @@ public class CombinationOfSections {
                 if (section.getE() <= mid) {
                     sum += section.getE() - section.getS() + 1;
                 } else {
-                    if (section.getS() == mid) sum++;
-                    else if (section.getS() < mid) sum += mid - section.getS() + 1;
+                    if (section.getS() <= mid) sum += mid - section.getS() + 1;
                 }
             }
 
             if (sum < i) binarySearch(mid + 1, end);
-            else if (sum == i) {
-                result = mid + 1;
-            } else {
+            else if (sum > i) {
                 if (sum > mid) result = mid;
                 binarySearch(start, mid - 1);
-            }
+            } else result = mid + 1;
         }
     }
 
