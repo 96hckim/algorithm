@@ -1,4 +1,4 @@
-package Special.SpindleAndRobot.move;
+package Special.spindleandrobot.move;
 
 import java.io.*;
 import java.util.StringTokenizer;
