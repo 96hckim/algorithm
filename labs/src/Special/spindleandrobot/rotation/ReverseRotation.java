@@ -1,4 +1,4 @@
-package Special.SpindleAndRobot.Rotation;
+package Special.spindleandrobot.rotation;
 
 import java.io.*;
 import java.util.StringTokenizer;
