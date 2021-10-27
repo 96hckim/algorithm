@@ -2,6 +2,9 @@ package Level14.example;
 
 import java.io.IOException;
 
+/**
+ *  완전 탐색 n^3
+ */
 public class ConsecutivePartialMaximum1 {
 
     public static void main(String[] args) throws IOException {
