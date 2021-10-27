@@ -2,6 +2,9 @@ package Level14.example;
 
 import java.io.IOException;
 
+/**
+ * 완전 탐색 (합부분 줄임) n^2
+ */
 public class ConsecutivePartialMaximum2 {
 
     public static void main(String[] args) throws IOException {
