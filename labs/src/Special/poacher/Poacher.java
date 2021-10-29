@@ -185,7 +185,6 @@ public class Poacher {
 
     // 중복 체크 (무게 높은 멧돼지가 낮은 멧돼지 잡아먹음)
     private static void duplicateCheck(Boar boar) {
-
         if (poacherArray[boar.getY()][boar.getX()] == null) poacherArray[boar.getY()][boar.getX()] = boar;
         else {
             if (poacherArray[boar.getY()][boar.getX()].getW() < boar.getW()) {
@@ -193,7 +192,6 @@ public class Poacher {
                 poacherArray[boar.getY()][boar.getX()] = boar;
             }
         }
-
     }
 
     // 멧돼지 포획
