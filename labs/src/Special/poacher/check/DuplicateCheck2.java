@@ -10,7 +10,7 @@ public class DuplicateCheck2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int[][] arr = new int[102][102];
+        int[][] duplicateArray = new int[102][102];
 
         int n = Integer.parseInt(br.readLine());
         for (int i = 1; i <= n; i++) {
@@ -18,13 +18,13 @@ public class DuplicateCheck2 {
             int y = Integer.parseInt(st.nextToken());
             int x = Integer.parseInt(st.nextToken());
 
-            if (arr[x][y] == 0) arr[y][x] = i;
+            if (duplicateArray[x][y] == 0) duplicateArray[y][x] = i;
         }
 
         int sum = 0;
         for (int i = 1; i <= 100; i++) {
             for (int j = 1; j <= 100; j++) {
-                sum += arr[i][j];
+                sum += duplicateArray[i][j];
             }
         }
 
