@@ -190,7 +190,7 @@ public class Poacher {
             if (poacherArray[boar.getY()][boar.getX()].getW() < boar.getW()) {
                 eatenBoars.add(poacherArray[boar.getY()][boar.getX()]);
                 poacherArray[boar.getY()][boar.getX()] = boar;
-            }
+            } else eatenBoars.add(boar);
         }
     }
 
