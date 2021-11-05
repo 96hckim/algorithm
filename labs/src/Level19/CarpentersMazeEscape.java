@@ -1,15 +1,17 @@
 package Level19;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class CarpentersMazeEscape {
 
+    private static int n;
+    private static int m;
     private static int[][] map;
-    private static int[] dy = {-1, 1, 0, 0};
-    private static int[] dx = {0, 0, -1, 1};
+    private static final int[] dy = {-1, 1, 0, 0};
+    private static final int[] dx = {0, 0, -1, 1};
 
     public static void main(String[] args) throws IOException {
 
@@ -17,37 +19,33 @@ public class CarpentersMazeEscape {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        map = new int[n + 2][m + 2];
-        for (int i = 0; i < map.length; i++) {
-            Arrays.fill(map[i], -1);
-        }
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        map = new int[n][m];
 
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= m; j++) {
-                int canMove = Integer.parseInt(st.nextToken());
-                map[i][j] = canMove;
+            for (int j = 0; j < m; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        int[][] start = bfs(n, 1);
-        int[][] end = bfs(1, m);
+        int[][] start = bfs(n - 1, 0);
+        int[][] end = bfs(0, m - 1);
 
-        int min = Integer.MAX_VALUE;
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= m; j++) {
+        int minDistance = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 if (map[i][j] == 1) {
-                    if (start[i][j] != 0 && end[i][j] != 0) {
+                    if (start[i][j] > 0 && end[i][j] > 0) {
                         int distance = start[i][j] + end[i][j];
-                        if (min > distance) min = distance;
+                        if (minDistance > distance) minDistance = distance;
                     }
                 }
             }
         }
 
-        bw.write(min + "");
+        bw.write(minDistance + "");
 
         br.close();
         bw.flush();
@@ -57,36 +55,40 @@ public class CarpentersMazeEscape {
 
     private static int[][] bfs(int i, int j) {
 
-        int[][] result = new int[map.length][map[0].length];
-        boolean[][] visited = new boolean[map.length][map[0].length];
+        boolean[][] visited = new boolean[n][m];
+        int[][] distances = new int[n][m];
 
-        ArrayList<int[]> needVisit = new ArrayList<>();
-        needVisit.add(new int[]{i, j});
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{i, j});
+        visited[i][j] = true;
 
-        while (!needVisit.isEmpty()) {
+        while (!queue.isEmpty()) {
 
-            int[] currentPosition = needVisit.remove(0);
-            visited[currentPosition[0]][currentPosition[1]] = true;
+            int[] pos = queue.poll();
 
             for (int k = 0; k < 4; k++) {
-                int y = currentPosition[0] + dy[k];
-                int x = currentPosition[1] + dx[k];
 
-                if (!visited[y][x]) {
-                    visited[y][x] = true;
+                int y = pos[0] + dy[k];
+                int x = pos[1] + dx[k];
 
-                    if (map[y][x] == 0) {
-                        result[y][x] = result[currentPosition[0]][currentPosition[1]] + 1;
-                        needVisit.add(new int[]{y, x});
-                    } else if (map[y][x] == 1) {
-                        result[y][x] = result[currentPosition[0]][currentPosition[1]] + 1;
+                if (y >= 0 && y < n && x >= 0 && x < m) {
+                    if (!visited[y][x]) {
+                        visited[y][x] = true;
+
+                        if (map[y][x] == 0) {
+                            distances[y][x] = distances[pos[0]][pos[1]] + 1;
+                            queue.add(new int[]{y, x});
+                        } else {
+                            distances[y][x] = distances[pos[0]][pos[1]] + 1;
+                        }
                     }
                 }
+
             }
 
         }
 
-        return result;
+        return distances;
 
     }
 
