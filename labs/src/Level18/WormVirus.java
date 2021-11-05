@@ -3,12 +3,13 @@ package Level18;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class WormVirus {
 
-    private static HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
+    private static final HashMap<Integer, ArrayList<Integer>> graph = new HashMap<>();
+    private static boolean[] visited;
+    private static int count = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -17,23 +18,26 @@ public class WormVirus {
 
         int n = Integer.parseInt(br.readLine());
         int m = Integer.parseInt(br.readLine());
+        visited = new boolean[n + 1];
 
         for (int i = 0; i < m; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
 
-            ArrayList<Integer> vertexA = graph.getOrDefault(a, new ArrayList<>());
-            ArrayList<Integer> vertexB = graph.getOrDefault(b, new ArrayList<>());
+            ArrayList<Integer> adjacentListA = graph.getOrDefault(a, new ArrayList<>());
+            ArrayList<Integer> adjacentListB = graph.getOrDefault(b, new ArrayList<>());
 
-            vertexA.add(b);
-            vertexB.add(a);
+            adjacentListA.add(b);
+            adjacentListB.add(a);
 
-            graph.put(a, vertexA);
-            graph.put(b, vertexB);
+            graph.put(a, adjacentListA);
+            graph.put(b, adjacentListB);
         }
 
-        bw.write(dfs(1) + "");
+        dfs(1);
+
+        bw.write(count + "");
 
         br.close();
         bw.flush();
@@ -41,29 +45,16 @@ public class WormVirus {
 
     }
 
-    private static int dfs(int vertex) {
+    private static void dfs(int i) {
+        visited[i] = true;
 
-        HashSet<Integer> visited = new HashSet<>();
-        ArrayList<Integer> needVisit = new ArrayList<>();
-
-        needVisit.add(vertex);
-
-        int count = 0;
-
-        while (needVisit.size() > 0) {
-
-            int w = needVisit.remove(needVisit.size() - 1);
-
-            if (!visited.contains(w)) {
+        ArrayList<Integer> nodeList = graph.getOrDefault(i, new ArrayList<>());
+        for (int node : nodeList) {
+            if (!visited[node]) {
                 count++;
-                visited.add(w);
-                if (graph.containsKey(w)) needVisit.addAll(graph.get(w));
+                dfs(node);
             }
-
         }
-
-        return count - 1;
-
     }
 
 }
