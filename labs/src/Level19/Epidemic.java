@@ -1,12 +1,14 @@
 package Level19;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Epidemic {
 
-    private static boolean[] town;
+    private static int n;
+    private static int k;
 
     public static void main(String[] args) throws IOException {
 
@@ -14,11 +16,10 @@ public class Epidemic {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int k = Integer.parseInt(st.nextToken());
-        town = new boolean[n + 1];
+        n = Integer.parseInt(st.nextToken());
+        k = Integer.parseInt(st.nextToken());
 
-        bw.write(bfs(n, k) + "");
+        bw.write(bfs(k) + "");
 
         br.close();
         bw.flush();
@@ -26,38 +27,39 @@ public class Epidemic {
 
     }
 
-    private static int bfs(int n, int k) {
+    private static int bfs(int k) {
 
-        int infectionCount = 0;
-        ArrayList<Integer> needVisit = new ArrayList<>();
-        needVisit.add(k);
-        town[k] = true;
+        int count = 0;
+        boolean[] visited = new boolean[n + 1];
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(k);
+        visited[k] = true;
 
-        while (!needVisit.isEmpty()) {
+        while (!queue.isEmpty()) {
 
-            int w = needVisit.remove(0);
-            infectionCount++;
+            int townNumber = queue.poll();
+            count++;
 
-            int mul = w * 2;
-            int div = w / 3;
+            int mul = townNumber * 2;
+            int div = townNumber / 3;
 
             if (mul <= n) {
-                if (!town[mul]) {
-                    needVisit.add(mul);
-                    town[mul] = true;
+                if (!visited[mul]) {
+                    visited[mul] = true;
+                    queue.add(mul);
                 }
             }
 
             if (div > 0) {
-                if (!town[div]) {
-                    needVisit.add(div);
-                    town[div] = true;
+                if (!visited[div]) {
+                    visited[div] = true;
+                    queue.add(div);
                 }
             }
 
         }
 
-        return n - infectionCount;
+        return n - count;
 
     }
 
