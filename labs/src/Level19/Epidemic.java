@@ -7,8 +7,8 @@ import java.util.StringTokenizer;
 
 public class Epidemic {
 
-    private static int n;
-    private static int k;
+    private static int N;
+    private static int K;
 
     public static void main(String[] args) throws IOException {
 
@@ -16,10 +16,10 @@ public class Epidemic {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        n = Integer.parseInt(st.nextToken());
-        k = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
 
-        bw.write(bfs(k) + "");
+        bw.write(bfs() + "");
 
         br.close();
         bw.flush();
@@ -27,39 +27,39 @@ public class Epidemic {
 
     }
 
-    private static int bfs(int k) {
+    private static int bfs() {
 
-        int count = 0;
-        boolean[] visited = new boolean[n + 1];
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(k);
-        visited[k] = true;
+        int count = N;
+        boolean[] visited = new boolean[N + 1];
+        Queue<Integer> needVisit = new LinkedList<>();
+        needVisit.add(K);
+        visited[K] = true;
 
-        while (!queue.isEmpty()) {
+        while (!needVisit.isEmpty()) {
 
-            int townNumber = queue.poll();
-            count++;
+            int town = needVisit.poll();
+            count--;
 
-            int mul = townNumber * 2;
-            int div = townNumber / 3;
+            int mul = town * 2;
+            int div = town / 3;
 
-            if (mul <= n) {
+            if (mul <= N) {
                 if (!visited[mul]) {
                     visited[mul] = true;
-                    queue.add(mul);
+                    needVisit.add(mul);
                 }
             }
 
             if (div > 0) {
                 if (!visited[div]) {
                     visited[div] = true;
-                    queue.add(div);
+                    needVisit.add(div);
                 }
             }
 
         }
 
-        return n - count;
+        return count;
 
     }
 
