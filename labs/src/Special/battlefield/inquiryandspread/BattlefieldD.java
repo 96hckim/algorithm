@@ -1,7 +1,8 @@
 package Special.battlefield.inquiryandspread;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BattlefieldD {
@@ -9,10 +10,16 @@ public class BattlefieldD {
     private static int N;
     private static int K;
     private static int[][] map;
-    private static final int[] dy = {-1, 1, 0, 0};
-    private static final int[] dx = {0, 0, -1, 1};
+
+    private static int Y;
+    private static int X;
+
+    private static int MIN;
     private static int minY;
     private static int minX;
+
+    private static final int[] dy = {-1, 1, 0, 0};
+    private static final int[] dx = {0, 0, -1, 1};
 
     public static void main(String[] args) throws IOException {
 
@@ -23,28 +30,20 @@ public class BattlefieldD {
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
         map = new int[N + 1][N + 1];
-        int y = -1;
-        int x = -1;
+        MIN = Integer.MAX_VALUE;
 
         for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= N; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
-            }
-        }
-
-        findMe:
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
                 if (map[i][j] == 9) {
-                    y = i;
-                    x = j;
-                    break findMe;
+                    Y = i;
+                    X = j;
                 }
             }
         }
 
-        String[][] result = bfs(y, x);
+        getMinPos(bfs());
 
         bw.write(minY + " " + minX);
 
@@ -54,68 +53,50 @@ public class BattlefieldD {
 
     }
 
-    private static String[][] bfs(int i, int j) {
+    private static int[][] bfs() {
 
-        String[][] result = new String[N + 1][N + 1];
-        result[i][j] = "*";
-
-        int[][] distance = new int[N + 1][N + 1];
+        int[][] distances = new int[N + 1][N + 1];
         boolean[][] visited = new boolean[N + 1][N + 1];
-
-        ArrayList<int[]> needVisit = new ArrayList<>();
-        needVisit.add(new int[]{i, j});
-        visited[i][j] = true;
+        Queue<int[]> needVisit = new LinkedList<>();
+        needVisit.add(new int[]{Y, X});
+        visited[Y][X] = true;
 
         while (!needVisit.isEmpty()) {
 
-            int[] points = needVisit.remove(0);
+            int[] pos = needVisit.poll();
+            int y = pos[0];
+            int x = pos[1];
 
-            for (int k = 0; k < 4; k++) {
-                int y = points[0] + dy[k];
-                int x = points[1] + dx[k];
+            for (int i = 0; i < 4; i++) {
+                int ny = y + dy[i];
+                int nx = x + dx[i];
 
-                if (y > 0 && y <= N && x > 0 && x <= N) {
-                    if (!visited[y][x]) {
-                        visited[y][x] = true;
+                if (ny > 0 && ny <= N && nx > 0 && nx <= N) {
+                    if (!visited[ny][nx]) {
+                        visited[ny][nx] = true;
 
-                        if (map[y][x] <= K) {
-                            distance[y][x] = distance[points[0]][points[1]] + 1;
-                            needVisit.add(new int[]{y, x});
-
-                            if (map[y][x] > 0) {
-                                if (map[y][x] != K) result[y][x] = String.valueOf(distance[y][x]);
-                                else result[y][x] = ".";
-                            } else {
-                                result[y][x] = "0";
-                            }
-                        } else {
-                            result[y][x] = "X";
+                        if (map[ny][nx] <= K) {
+                            distances[ny][nx] = distances[y][x] + 1;
+                            needVisit.add(new int[]{ny, nx});
                         }
                     }
                 }
-
             }
 
         }
 
-        inquiry(distance);
-
-        return result;
+        return distances;
 
     }
 
-    private static void inquiry(int[][] distance) {
-        int min = Integer.MAX_VALUE;
+    private static void getMinPos(int[][] distances) {
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
                 if (map[i][j] > 0 && map[i][j] < K) {
-                    int value = distance[i][j];
-                    if (value > 0) {
-                        if (min > value) {
-                            min = value;
-                            minY = i;
-                            minX = j;
-                        }
+                    if (distances[i][j] > 0 && MIN > distances[i][j]) {
+                        MIN = distances[i][j];
+                        minY = i;
+                        minX = j;
                     }
                 }
             }
