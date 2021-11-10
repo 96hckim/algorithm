@@ -1,61 +1,95 @@
 package Level20.spfa;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
 public class Party {
 
-    public static void main(String[] args) {
+    private static int N;
+    private static int M;
+    private static int K;
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int k = sc.nextInt();
-        int[][] map1 = new int[n + 1][n + 1];
-        int[][] map2 = new int[n + 1][n + 1];
+    private static HashMap<Integer, ArrayList<Edge>> graph;
 
-        for (int i = 0; i < m; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
+    public static void main(String[] args) throws IOException {
 
-            map1[a][b] = c;
-            map2[b][a] = c;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
+        K = Integer.parseInt(st.nextToken());
+        graph = new HashMap<>();
+
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            int c = Integer.parseInt(st.nextToken());
+
+            ArrayList<Edge> nodeList = graph.getOrDefault(a, new ArrayList<>());
+            nodeList.add(new Edge(b, c));
+
+            graph.put(a, nodeList);
         }
 
-        int sum = dijkstra(map1, k, n);
-        sum += dijkstra(map2, k, n);
+        HashMap<Integer, Integer> distancesStart = dijkstra(K);
 
-        System.out.println(sum);
+        int sum = 0;
+        for (int i = 1; i <= N; i++) {
+            if (N != K) sum += dijkstra(i).get(K) + distancesStart.get(i);
+        }
+
+        bw.write(sum + "");
+
+        br.close();
+        bw.flush();
+        bw.close();
+
     }
 
-    static int dijkstra(int[][] map, int k, int n) {
-        int sum = 0;
-        int[] dist = new int[n + 1];
-        for (int i = 0; i <= n; i++)
-            dist[i] = Integer.MAX_VALUE;
-        dist[k] = 0;
+    private static HashMap<Integer, Integer> dijkstra(int startNode) {
 
-        Queue<Integer> q = new LinkedList<>();
-        q.add(k);
+        HashMap<Integer, Integer> distances = new HashMap<>();
+        for (int i = 1; i <= N; i++) {
+            distances.put(i, Integer.MAX_VALUE);
+        }
+        distances.put(startNode, 0);
 
-        while (!q.isEmpty()) {
-            int node = q.poll();
+        PriorityQueue<Edge> priorityQueue = new PriorityQueue<>();
+        priorityQueue.add(new Edge(startNode, distances.get(startNode)));
 
-            for (int i = 1; i <= n; i++) {
-                if (map[node][i] != 0 && dist[i] > dist[node] + map[node][i]) {
-                    dist[i] = dist[node] + map[node][i];
-                    q.add(i);
+        while (!priorityQueue.isEmpty()) {
+
+            Edge edgeNode = priorityQueue.poll();
+            int currentVertex = edgeNode.getVertex();
+            int currentDistance = edgeNode.getDistance();
+
+            if (distances.get(currentVertex) >= currentDistance) {
+
+                ArrayList<Edge> nodeList = graph.getOrDefault(currentVertex, new ArrayList<>());
+
+                for (Edge adjacentNode : nodeList) {
+                    int vertex = adjacentNode.getVertex();
+                    int weight = adjacentNode.getDistance();
+                    int distance = currentDistance + weight;
+
+                    if (distances.get(vertex) > distance) {
+                        distances.put(vertex, distance);
+                        priorityQueue.add(new Edge(vertex, distance));
+                    }
                 }
+
             }
+
         }
 
-        for (int i = 1; i <= n; i++)
-            if (dist[i] < Integer.MAX_VALUE)
-                sum += dist[i];
+        return distances;
 
-        return sum;
     }
 
 }
