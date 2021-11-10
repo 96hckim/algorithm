@@ -1,7 +1,8 @@
 package Special.battlefield.spread;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BattlefieldC {
@@ -9,6 +10,10 @@ public class BattlefieldC {
     private static int N;
     private static int K;
     private static int[][] map;
+
+    private static int Y;
+    private static int X;
+
     private static final int[] dy = {-1, 1, 0, 0};
     private static final int[] dx = {0, 0, -1, 1};
 
@@ -16,31 +21,30 @@ public class BattlefieldC {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st;
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
-        map = new int[N + 1][N + 1];
-        int y = -1;
-        int x = -1;
+        map = new int[N][N];
 
-        for (int i = 1; i <= N; i++) {
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 1; j <= N; j++) {
-                int value = Integer.parseInt(st.nextToken());
-                map[i][j] = value;
-                if (y == -1 && value == 9) {
-                    y = i;
-                    x = j;
+            for (int j = 0; j < N; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+
+                if (map[i][j] == 9) {
+                    Y = i;
+                    X = j;
                 }
             }
         }
 
-        String[][] result = bfs(y, x);
+        String[][] result = getResult(getDistances());
 
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= N; j++) {
-                bw.write((result[i][j] == null ? "-1" : result[i][j]) + " ");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                bw.write(result[i][j] + " ");
             }
             bw.newLine();
         }
@@ -51,54 +55,55 @@ public class BattlefieldC {
 
     }
 
-    private static String[][] bfs(int i, int j) {
+    private static int[][] getDistances() {
 
-        String[][] result = new String[N + 1][N + 1];
-
-        int[][] distance = new int[N + 1][N + 1];
-        boolean[][] visited = new boolean[N + 1][N + 1];
-
-        ArrayList<int[]> needVisit = new ArrayList<>();
-        needVisit.add(new int[]{i, j});
-        visited[i][j] = true;
+        int[][] distances = new int[N][N];
+        boolean[][] visited = new boolean[N][N];
+        Queue<int[]> needVisit = new LinkedList<>();
+        needVisit.add(new int[]{Y, X});
+        visited[Y][X] = true;
 
         while (!needVisit.isEmpty()) {
 
-            int[] points = needVisit.remove(0);
+            int[] pos = needVisit.poll();
 
-            for (int k = 0; k < 4; k++) {
-                int y = points[0] + dy[k];
-                int x = points[1] + dx[k];
+            for (int i = 0; i < 4; i++) {
+                int ny = pos[0] + dy[i];
+                int nx = pos[1] + dx[i];
 
-                if (y > 0 && y <= N && x > 0 && x <= N) {
-                    if (!visited[y][x]) {
-                        visited[y][x] = true;
+                if (ny >= 0 && ny < N && nx >= 0 && nx < N) {
+                    if (!visited[ny][nx]) {
+                        visited[ny][nx] = true;
 
-                        if (map[y][x] <= K) {
-                            distance[y][x] = distance[points[0]][points[1]] + 1;
-                            needVisit.add(new int[]{y, x});
-
-                            if (map[y][x] > 0) {
-                                if (map[y][x] != K)
-                                    result[y][x] = String.valueOf(distance[y][x]);
-                                else result[y][x] = ".";
-                            } else {
-                                result[y][x] = "0";
-                            }
-                        } else {
-                            result[y][x] = "X";
+                        if (map[ny][nx] <= K) {
+                            distances[ny][nx] = distances[pos[0]][pos[1]] + 1;
+                            needVisit.add(new int[]{ny, nx});
                         }
                     }
                 }
-
             }
 
         }
 
-        result[i][j] = "*";
+        return distances;
+
+    }
+
+    private static String[][] getResult(int[][] distances) {
+        String[][] result = new String[N][N];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                if (map[i][j] == 0) result[i][j] = "0";
+                else if (map[i][j] == K) result[i][j] = ".";
+                else if (map[i][j] > K) result[i][j] = "X";
+                else result[i][j] = String.valueOf(distances[i][j] == 0 ? -1 : distances[i][j]);
+            }
+        }
+
+        result[Y][X] = "*";
 
         return result;
-
     }
 
 }
