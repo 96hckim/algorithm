@@ -148,15 +148,12 @@ public class Slime {
         if (!IS_COMBINED) IS_COMBINED = combinationPositions.size() > 1;
 
         // 합친 슬라임 분리
-        separation(combinationPositions, sum, count);
+        separation(combinationPositions, sum / count);
 
     }
 
     // 분리
-    private static void separation(ArrayList<int[]> combinationPositions, int sum, int count) {
-        // 합칠 슬라임 질량의 평균
-        int average = sum / count;
-
+    private static void separation(ArrayList<int[]> combinationPositions, int average) {
         // 합친 슬라임들 평균 질량으로 분리
         for (int[] position : combinationPositions) field[position[0]][position[1]] = average;
     }
