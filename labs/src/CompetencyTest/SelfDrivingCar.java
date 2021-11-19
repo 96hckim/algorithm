@@ -1,8 +1,7 @@
 package CompetencyTest;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 class Car {
@@ -15,6 +14,15 @@ class Car {
         this.r = r;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "y=" + y +
+                ", x=" + x +
+                ", r=" + r +
+                '}';
+    }
+
 }
 
 public class SelfDrivingCar {
@@ -24,17 +32,19 @@ public class SelfDrivingCar {
 
     private static int S; // 자동차의 개수
     private static int[][] map; // 지도
-    private static Queue<Car> cars; // 남아있는 자동차
+    private static ArrayList<Car> cars; // 남아있는 자동차
     private static int COLLISION_COUNT; // 충돌 횟수
 
     private static final int[] dy = {-1, 1, 0, 0}; // y축 이동
     private static final int[] dx = {0, 0, -1, 1}; // x축 이동
 
+    private static ArrayList<Car> temp;
+
     // 입력
     private static void input() throws IOException {
         S = Integer.parseInt(br.readLine());
         map = new int[4001][4001];
-        cars = new LinkedList<>();
+        cars = new ArrayList<>();
         COLLISION_COUNT = 0;
 
         for (int i = 0; i < S; i++) {
@@ -42,7 +52,6 @@ public class SelfDrivingCar {
             int x = Integer.parseInt(st.nextToken()) * 2 + 2000;
             int y = Integer.parseInt(st.nextToken()) * -2 + 2000;
             int r = Integer.parseInt(st.nextToken());
-            map[y][x]++;
             cars.add(new Car(y, x, r));
         }
     }
@@ -79,46 +88,46 @@ public class SelfDrivingCar {
     // 자동차 이동 및 충돌체크
     private static void move() {
 
-        int size = cars.size();
-        for (int s = 0; s < size; s++) {
+        temp = new ArrayList<>();
 
-            Car car = cars.poll();
+        for (Car car : cars) {
 
             int ny = car.y + dy[car.r];
             int nx = car.x + dx[car.r];
 
-            if (ny >= 0 && ny < map.length && nx >= 0 && nx < map.length) { // 지도 안쪽
-                map[car.y][car.x]--;
-                map[ny][nx]++;
-
+            if (ny >= 0 && ny < map.length && nx >= 0 && nx < map[0].length) { // 지도 안쪽
                 car.y = ny;
                 car.x = nx;
-
-                cars.add(car);
+                map[ny][nx]++;
+                temp.add(car);
             }
 
         }
+
+        cars = temp;
 
     }
 
     // 충돌 체크
     private static void collisionCheck() {
 
-        int size = cars.size();
-        for (int s = 0; s < size; s++) {
+        temp = new ArrayList<>();
 
-            Car car = cars.poll();
+        for (Car car : cars) {
 
             if (map[car.y][car.x] == 1) { // 충돌 X
-                cars.add(car);
+                temp.add(car);
             } else {
                 if (map[car.y][car.x] >= 2) { // 충돌 O
-                    map[car.y][car.x] = 0;
                     COLLISION_COUNT++;
                 }
             }
 
+            map[car.y][car.x] = 0;
+
         }
+
+        cars = temp;
 
     }
 
