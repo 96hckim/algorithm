@@ -139,11 +139,7 @@ public class MigratoryBird {
                 bird.d = rd[d];
                 ny = y + dy[bird.d];
                 nx = x + dx[bird.d];
-                if (area[ny][nx] == 2) {
-                    ny = y;
-                    nx = y;
-                    if (area[ny][nx] == 2) continue;
-                }
+                if (area[ny][nx] == 2) continue;
             }
 
             if (area[ny][nx] == 0) {
