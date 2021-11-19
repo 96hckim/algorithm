@@ -29,7 +29,7 @@ public class PushAlgorithm3 {
                     break;
                 case 2:
                     size[y][x] += c;
-                    for (int j = size[y][x]; j >= c; j--) {
+                    for (int j = size[y][x] - 1; j >= c; j--) {
                         int prevIndex = j - c;
                         if (prevIndex >= 0) map[y][x][j] = map[y][x][prevIndex];
                     }
