@@ -14,15 +14,6 @@ class Car {
         this.r = r;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "y=" + y +
-                ", x=" + x +
-                ", r=" + r +
-                '}';
-    }
-
 }
 
 public class SelfDrivingCar {
@@ -95,7 +86,7 @@ public class SelfDrivingCar {
             int ny = car.y + dy[car.r];
             int nx = car.x + dx[car.r];
 
-            if (ny >= 0 && ny < map.length && nx >= 0 && nx < map[0].length) { // 지도 안쪽
+            if (ny >= 0 && ny <= 4000 && nx >= 0 && nx <= 4000) { // 지도 안쪽
                 car.y = ny;
                 car.x = nx;
                 map[ny][nx]++;
