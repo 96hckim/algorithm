@@ -76,7 +76,6 @@ public class AlphaYut {
     }
 
     private static void move(int currentPiece, int x) {
-
         int yut = commands[x];
 
         int[] position = piece.get(currentPiece);
@@ -110,7 +109,6 @@ public class AlphaYut {
         b = board.get(key);
         b[currentIndex] = currentPiece;
         piece.put(currentPiece, new int[]{key, currentIndex});
-
     }
 
     private static int getResult() {
