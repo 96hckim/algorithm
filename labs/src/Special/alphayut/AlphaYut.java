@@ -10,24 +10,20 @@ public class AlphaYut {
     private static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out)); // 쓰기
 
     private static final HashMap<Integer, int[]> score = new HashMap<>(4);
-    private static final HashMap<Integer, int[]> board = new HashMap<>(4);
     private static final HashMap<Integer, int[]> piece = new HashMap<>(4);
 
     private static int[] commands;
+    private static boolean[] empty;
     private static int MAX_VALUE;
 
     // 입력
     private static void input() throws IOException {
         commands = new int[10];
+        empty = new boolean[1001];
         MAX_VALUE = Integer.MIN_VALUE;
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < 10; i++) commands[i] = Integer.parseInt(st.nextToken());
-
-        board.put(0, new int[score.get(0).length]);
-        board.put(50, new int[score.get(50).length]);
-        board.put(100, new int[score.get(100).length]);
-        board.put(300, new int[score.get(300).length]);
 
         for (int i = 1; i <= 4; i++) piece.put(i, new int[2]);
     }
@@ -76,39 +72,39 @@ public class AlphaYut {
     }
 
     private static void move(int currentPiece, int x) {
+
         int yut = commands[x];
 
         int[] position = piece.get(currentPiece);
-        int key = position[0];
+        int currentKey = position[0];
         int currentIndex = position[1];
 
-        int[] s = score.get(key);
-        int[] b = board.get(key);
-        if (currentIndex == b.length - 1) return;
-        b[currentIndex] = 0;
+        int[] s = score.get(currentKey);
+        int currentScore = s[currentIndex];
+        if (currentScore == 1000) return;
+        empty[currentScore] = false;
 
+        int nextKey = currentKey;
         int nextIndex = yut + currentIndex;
-        if (nextIndex >= b.length - 1) nextIndex = b.length - 1;
-        if (score.get(s[nextIndex]) != null) {
-            key = s[nextIndex];
+        if (nextIndex >= s.length - 1) nextIndex = s.length - 1;
+        int nextScore = s[nextIndex];
+        if (score.get(nextScore) != null) {
+            nextKey = s[nextIndex];
             nextIndex = 0;
-            b = board.get(key);
+            s = score.get(nextKey);
+            nextScore = s[nextIndex];
         }
 
-        if (b[nextIndex] == 0 || nextIndex == b.length - 1) {
-
-            b[nextIndex] = currentPiece;
-            piece.put(currentPiece, new int[]{key, nextIndex});
-
+        if (!empty[nextScore] || nextScore == 1000) {
+            empty[nextScore] = true;
+            piece.put(currentPiece, new int[]{nextKey, nextIndex});
             recursive(x + 1);
-
-            b[nextIndex] = 0;
+            empty[nextScore] = false;
         }
 
-        key = position[0];
-        b = board.get(key);
-        b[currentIndex] = currentPiece;
-        piece.put(currentPiece, new int[]{key, currentIndex});
+        empty[currentScore] = true;
+        piece.put(currentPiece, new int[]{currentKey, currentIndex});
+
     }
 
     private static int getResult() {
