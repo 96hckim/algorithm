@@ -47,7 +47,7 @@ public class MigratoryBird {
 
     private static final int[] dy = {-1, 1, 0, 0}; // 상하
     private static final int[] dx = {0, 0, -1, 1}; // 좌우
-    private static final int[] rd = {1, 0, 3, 2}; // 좌우
+    private static final int[] rd = {1, 0, 3, 2}; // 역전
 
     // 입력
     private static void input() throws IOException {
@@ -57,8 +57,8 @@ public class MigratoryBird {
         K = Integer.parseInt(st.nextToken());
 
         area = new int[N + 2][N + 2];
-        map = new Bird[N + 1][N + 1][K];
-        size = new int[N + 1][N + 1];
+        map = new Bird[N + 2][N + 2][K];
+        size = new int[N + 2][N + 2];
         birds = new Bird[K];
 
         TIME_LIMIT = 1000;
@@ -111,6 +111,18 @@ public class MigratoryBird {
             input();
 
             while (!IS_CLEAR && TIME_LIMIT > 0) { // 철새 4마리 이상 모이거나 1000초 지났으면 나온다
+                System.out.println("---------------------(" + (1000 - TIME_LIMIT) + ")");
+                for (int i = 1; i <= N; i++) {
+                    for (int j = 1; j <= N; j++) {
+                        System.out.print(i + "/" + j + "[");
+                        for (int k = 0; k < K; k++) {
+                            if (map[i][j][k] == null) break;
+                            else System.out.print(map[i][j][k].n + ",");
+                        }
+                        System.out.print("]\t");
+                    }
+                    System.out.println();
+                }
                 TIME_LIMIT--;
                 move();
             }
@@ -139,7 +151,25 @@ public class MigratoryBird {
                 bird.d = rd[d];
                 ny = y + dy[bird.d];
                 nx = x + dx[bird.d];
-                if (area[ny][nx] == 2) continue;
+                if (area[ny][nx] == 2) {
+                    bird.d = d;
+                    if (area[y][x] == 0) {
+                        Bird[] temp = map[y][x].clone();
+                        int c = size[y][x] - index;
+
+                        for (int i = size[y][x] - 1; i >= c; i--) {
+                            map[y][x][i] = temp[i - c];
+                            map[y][x][i].i = i;
+                        }
+
+                        for (int i = 0; i < c; i++) {
+                            map[y][x][i] = temp[i + index];
+                            map[y][x][i].i = i;
+                        }
+                    }
+
+                    continue;
+                }
             }
 
             if (area[ny][nx] == 0) {
@@ -147,10 +177,8 @@ public class MigratoryBird {
                 int c = size[y][x] - index;
                 size[ny][nx] += c;
                 for (int i = size[ny][nx] - 1; i >= size[ny][nx] - cur; i--) {
-                    if (i - c >= 0) {
-                        map[ny][nx][i] = map[ny][nx][i - c];
-                        map[ny][nx][i].i = i;
-                    }
+                    map[ny][nx][i] = map[ny][nx][i - c];
+                    map[ny][nx][i].i = i;
                 }
             }
 
