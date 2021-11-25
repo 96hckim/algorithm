@@ -91,8 +91,6 @@ public class AlphaYut {
         if (score.get(nextScore) != null) {
             nextKey = s[nextIndex];
             nextIndex = 0;
-            s = score.get(nextKey);
-            nextScore = s[nextIndex];
         }
 
         if (!empty[nextScore] || nextScore == 1000) {
