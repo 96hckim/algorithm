@@ -57,8 +57,8 @@ public class MigratoryBird {
         K = Integer.parseInt(st.nextToken());
 
         area = new int[N + 2][N + 2];
-        map = new Bird[N + 2][N + 2][K];
-        size = new int[N + 2][N + 2];
+        map = new Bird[N + 1][N + 1][K];
+        size = new int[N + 1][N + 1];
         birds = new Bird[K];
 
         TIME_LIMIT = 1000;
@@ -111,18 +111,6 @@ public class MigratoryBird {
             input();
 
             while (!IS_CLEAR && TIME_LIMIT > 0) { // 철새 4마리 이상 모이거나 1000초 지났으면 나온다
-                System.out.println("---------------------(" + (1000 - TIME_LIMIT) + ")");
-                for (int i = 1; i <= N; i++) {
-                    for (int j = 1; j <= N; j++) {
-                        System.out.print(i + "/" + j + "[");
-                        for (int k = 0; k < K; k++) {
-                            if (map[i][j][k] == null) break;
-                            else System.out.print(map[i][j][k].n + ",");
-                        }
-                        System.out.print("]\t");
-                    }
-                    System.out.println();
-                }
                 TIME_LIMIT--;
                 move();
             }
@@ -135,62 +123,48 @@ public class MigratoryBird {
 
     }
 
+    // 철새 이동
     private static void move() {
 
         for (Bird bird : birds) {
 
-            int y = bird.y;
-            int x = bird.x;
-            int d = bird.d;
-            int index = bird.i;
+            int y = bird.y; // 현재 Y 좌표
+            int x = bird.x; // 현재 X 좌표
+            int d = bird.d; // 방향
+            int index = bird.i; // 층
 
-            int ny = y + dy[d];
-            int nx = x + dx[d];
+            int ny = y + dy[d]; // 다음 Y 좌표
+            int nx = x + dx[d]; // 다음 X 좌표
 
-            if (area[ny][nx] == 2) {
+            if (area[ny][nx] == 2) { // 나무 만났을 때 방향 역전
                 bird.d = rd[d];
                 ny = y + dy[bird.d];
                 nx = x + dx[bird.d];
-                if (area[ny][nx] == 2) {
+
+                if (area[ny][nx] == 2) { // 또 나무를 만나면 방향, 위치 원래대로
                     bird.d = d;
-                    if (area[y][x] == 0) {
-                        Bird[] temp = map[y][x].clone();
-                        int c = size[y][x] - index;
-
-                        for (int i = size[y][x] - 1; i >= c; i--) {
-                            map[y][x][i] = temp[i - c];
-                            map[y][x][i].i = i;
-                        }
-
-                        for (int i = 0; i < c; i++) {
-                            map[y][x][i] = temp[i + index];
-                            map[y][x][i].i = i;
-                        }
-                    }
-
                     continue;
                 }
             }
 
-            if (area[ny][nx] == 0) {
-                int cur = size[ny][nx];
-                int c = size[y][x] - index;
-                size[ny][nx] += c;
-                for (int i = size[ny][nx] - 1; i >= size[ny][nx] - cur; i--) {
-                    map[ny][nx][i] = map[ny][nx][i - c];
+            if (area[ny][nx] == 0) { // 어두운 지역은 나중에 오는 철새가 앞이므로 기존 철새 뒤로 밀기
+                int moveSize = size[y][x] - index;
+                size[ny][nx] += moveSize;
+                for (int i = size[ny][nx] - 1; i >= moveSize; i--) {
+                    map[ny][nx][i] = map[ny][nx][i - moveSize];
                     map[ny][nx][i].i = i;
                 }
             }
 
-            for (int i = index; i < size[y][x]; i++) {
+            for (int i = index; i < size[y][x]; i++) { // 들어오는 철새 앞으로 배치
 
                 map[y][x][i].y = ny;
                 map[y][x][i].x = nx;
 
-                if (area[ny][nx] == 0) {
+                if (area[ny][nx] == 0) { // 어두운 지역
                     map[y][x][i].i = i - index;
                     map[ny][nx][map[y][x][i].i] = map[y][x][i];
-                } else if (area[ny][nx] == 1) {
+                } else if (area[ny][nx] == 1) { // 밝은 지역
                     map[y][x][i].i = size[ny][nx];
                     map[ny][nx][size[ny][nx]++] = map[y][x][i];
                 }
@@ -201,7 +175,7 @@ public class MigratoryBird {
 
             size[y][x] = index;
 
-            if (size[ny][nx] >= 4) {
+            if (size[ny][nx] >= 4) { // 철새 4마리 이상 모이면 종료
                 IS_CLEAR = true;
                 return;
             }
