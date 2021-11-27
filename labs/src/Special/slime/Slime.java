@@ -1,4 +1,4 @@
-package Special.Slime;
+package Special.slime;
 
 import java.io.*;
 import java.util.ArrayList;
