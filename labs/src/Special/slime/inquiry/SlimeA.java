@@ -1,4 +1,4 @@
-package Special.Slime.inquiry;
+package Special.slime.inquiry;
 
 import java.io.*;
 import java.util.StringTokenizer;
