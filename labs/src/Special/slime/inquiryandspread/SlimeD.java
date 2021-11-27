@@ -1,4 +1,4 @@
-package Special.Slime.inquiryandspread;
+package Special.slime.inquiryandspread;
 
 import java.io.*;
 import java.util.*;
