@@ -1,4 +1,4 @@
-package Special.Slime.spread;
+package Special.slime.spread;
 
 import java.io.*;
 import java.util.LinkedList;
