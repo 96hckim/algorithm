@@ -43,8 +43,8 @@ public class BubbleSort {
 
 ### 분석
 
-- 반복문이 두 개 O($n^2$)
-  - 최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
+- 반복문이 두 개 O(n^2)
+  - 최악의 경우, <font size=5em>frac{n\*(n-1)}{2}$</font>
 - 완전 정렬이 되어 있는 상태라면 최선은 O(n)
 
 ---
@@ -83,8 +83,8 @@ public class SelectionSort {
 
 ### 분석
 
-- 반복문이 두 개 O($n^2$)
-  - 실제로 상세하게 계산하면, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
+- 반복문이 두 개 O(n^2)
+  - 실제로 상세하게 계산하면, <font size=5em>frac{n\*(n-1)}{2}$</font>
 
 ---
 
@@ -120,6 +120,6 @@ public class InsertionSort {
 
 ### 분석
 
-- 반복문이 두 개 O($n^2$)
-  - 최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font>
+- 반복문이 두 개 O(n^2)
+  - 최악의 경우, <font size=5em>frac{n\*(n-1)}{2}$</font>
 - 완전 정렬이 되어 있는 상태라면 최선은 O(n)
