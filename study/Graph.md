@@ -21,7 +21,7 @@
   - 사이클 (Cycle): 단순 경로의 시작 정점과 종료 정점이 동일한 경우
 
 > 단순 경로 (A - B - C) <br>
-> A-B-C-A-B-D 와 같은 식의 경로는 중복된 정점이 있으므로 단순 경로가 아님 <br> > <img src="https://www.fun-coding.org/00_Images/simplepath.png" width=200>
+> A-B-C-A-B-D 와 같은 식의 경로는 중복된 정점이 있으므로 단순 경로가 아님 <br> <img src="https://www.fun-coding.org/00_Images/simplepath.png" width=200>
 
 ### 그래프 (Graph) 종류
 
@@ -50,7 +50,7 @@
 - 비연결 그래프 (Disconnected Graph)
   - 무방향 그래프에서 특정 노드에 대해 경로가 존재하지 않는 경우
 
-> 비연결 그래프 예 <br> > <img src="https://www.fun-coding.org/00_Images/disconnectedgraph.png" width=300>
+> 비연결 그래프 예 <br> <img src="https://www.fun-coding.org/00_Images/disconnectedgraph.png" width=300>
 
 #### 사이클 (Cycle) 과 비순환 그래프 (Acyclic Graph)
 
@@ -59,13 +59,13 @@
 - 비순환 그래프 (Acyclic Graph)
   - 사이클이 없는 그래프
 
-> 비순환 그래프 예 <br> > <img src="https://www.fun-coding.org/00_Images/acyclicgraph.png" width=300>
+> 비순환 그래프 예 <br> <img src="https://www.fun-coding.org/00_Images/acyclicgraph.png" width=300>
 
 #### 완전 그래프 (Complete Graph)
 
 - 그래프의 모든 노드가 서로 연결되어 있는 그래프
 
-> 완전 그래프 예 <br> > <img src="https://www.fun-coding.org/00_Images/completegraph.png" width=300>
+> 완전 그래프 예 <br> <img src="https://www.fun-coding.org/00_Images/completegraph.png" width=300>
 
 ### 그래프와 트리의 차이
 
