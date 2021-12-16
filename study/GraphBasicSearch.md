@@ -9,7 +9,7 @@
 - BFS 방식: A - B - C - D - G - H - I - E - F - J
   - 한 단계씩 내려가면서, 해당 노드와 같은 레벨에 있는 노드들 (형제 노드들)을 먼저 순회함
 - DFS 방식: A - B - D - E - F - C - G - H - I - J
-  - 한 노드의 자식을 타고 끝까지 순회한 후, 다시 돌아와서 다른 형제들의 자식을 타고 내려가며 순화함
+  - 한 노드의 자식을 타고 끝까지 순회한 후, 다시 돌아와서 다른 형제들의 자식을 타고 내려가며 순회함
 
 <img src="https://www.fun-coding.org/00_Images/BFSDFS.png" width=700>
 
@@ -17,7 +17,7 @@
 
 - Java Collection Framework 에서 제공하는 Hashmap 과 ArrayList 를 활용해서 그래프를 표현할 수 있음
 
-### 그래프 예와 JAVA 표현
+### 그래프 예와 입력
 
 <img src="https://www.fun-coding.org/00_Images/bfsgraph.png" width=700>
 
