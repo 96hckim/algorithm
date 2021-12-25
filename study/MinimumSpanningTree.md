@@ -36,15 +36,17 @@
 
 - 각 트리에 대해 높이(rank)를 기억해 두고,
 - Union시 두 트리의 높이(rank)가 다르면, 높이가 작은 트리를 높이가 큰 트리에 붙임 (즉, 높이가 큰 트리의 루트 노드가 합친 집합의 루트 노드가 되게 함)
-  <img src="https://www.fun-coding.org/00_Images/unionbyrank_findunion.png" width=700>
+
+<img src="https://www.fun-coding.org/00_Images/unionbyrank_findunion.png" width=700>
 
 - 높이가 h - 1 인 두 개의 트리를 합칠 때는 한 쪽의 트리 높이를 1 증가시켜주고, 다른 쪽의 트리를 해당 트리에 붙여줌
-  <img src="https://www.fun-coding.org/00_Images/unionbyranksame_findunion.png" width=700>
+
+<img src="https://www.fun-coding.org/00_Images/unionbyranksame_findunion.png" width=700>
 
 - 초기화시, 모든 원소는 높이(rank) 가 0 인 개별 집합인 상태에서, 하나씩 원소를 합칠 때, union-by-rank 기법을 사용한다면,
   - 높이가 h 인 트리가 만들어지려면, 높이가 h - 1 인 두 개의 트리가 합쳐져야 함
   - 높이가 h - 1 인 트리를 만들기 위해 최소 n개의 원소가 필요하다면, 높이가 h 인 트리가 만들어지기 위해서는 최소 2n개의 원소가 필요함
-  - 따라서 union-by-rank 기법을 사용하면, union/find 연산의 시간복잡도는 O(N) 이 아닌, $ O(log{N}) $ 로 낮출 수 있음
+  - 따라서 union-by-rank 기법을 사용하면, union/find 연산의 시간복잡도는 O(N) 이 아닌, O(log N) 로 낮출 수 있음
 
 ### path compression
 
@@ -54,9 +56,9 @@
 <center><img src="https://www.fun-coding.org/00_Images/pathcompression_findunion.png" width=400></center>
 
 - union-by-rank 와 path compression 기법 사용시 시간 복잡도는 다음 계산식을 만족함이 증명되었음
-  - $ O(M log^\*{N}) $
-  - $ log^\*{N} $ 은 다음 값을 가짐이 증명되었음
-    - N이 $ 2^{65536} $ 값을 가지더라도, $ log^\*{N} $ 의 값이 5의 값을 가지므로, 거의 O(1), 즉 상수값에 가깝다고 볼 수 있음
+  - O(M log N)
+  - log N 은 다음 값을 가짐이 증명되었음
+    - N이 2^65536 값을 가지더라도, log N 의 값이 5의 값을 가지므로, 거의 O(1), 즉 상수값에 가깝다고 볼 수 있음
 
 ### Edge 클래스 정의
 
@@ -290,7 +292,7 @@ public class PrimPath {
 
 ### 시간 복잡도
 
-- 최악의 경우, while 구문에서 모든 간선에 대해 반복하고, 최소 힙 구조를 사용하므로 O($ElogE$) 시간 복잡도를 가짐
+- 최악의 경우, while 구문에서 모든 간선에 대해 반복하고, 최소 힙 구조를 사용하므로 O(ElogE) 시간 복잡도를 가짐
 
 ### 참고: 개선된 프림 알고리즘
 
@@ -368,16 +370,16 @@ public class PrimPath {
 }
 ```
 
-### 개선된 프림 알고리즘의 시간 복잡도: $ O(ElogV) $
+### 개선된 프림 알고리즘의 시간 복잡도: O(ElogV)
 
-- 최초 key 생성 시간 복잡도: $ O(V) $
-- while 구문과 keys.poll() 의 시간 복잡도는 $ O(VlogV) $
+- 최초 key 생성 시간 복잡도: O(V)
+- while 구문과 keys.poll() 의 시간 복잡도는 O(VlogV)
   - while 구문은 V(노드 갯수) 번 실행됨
-  - heap 에서 최소 key 값을 가지는 노드 정보 추출 시(pop)의 시간 복잡도: $ O(logV) $
-- for 구문의 총 시간 복잡도는 $ O(ElogV) $
-  - for 구문은 while 구문 반복시에 결과적으로 총 최대 간선의 수 E만큼 실행 가능 $ O(E) $
-  - for 구문 안에서 key값 변경시마다 heap 구조를 변경해야 하며, heap 에는 최대 V 개의 정보가 있으므로 $ O(logV) $
+  - heap 에서 최소 key 값을 가지는 노드 정보 추출 시(pop)의 시간 복잡도: O(logV)
+- for 구문의 총 시간 복잡도는 O(ElogV)
+  - for 구문은 while 구문 반복시에 결과적으로 총 최대 간선의 수 E만큼 실행 가능 O(E)
+  - for 구문 안에서 key값 변경시마다 heap 구조를 변경해야 하며, heap 에는 최대 V 개의 정보가 있으므로 O(logV)
     > 일반적인 heap 자료 구조 자체에는 본래 heap 내부의 데이터 우선순위 변경시, 최소 우선순위 데이터를 루트노드로 만들어주는 로직은 없음. 이를 decrease key 로직이라고 부름, 해당 로직은 heapdict 라이브러리를 활용해서 간단히 적용가능
-- 따라서 총 시간 복잡도는 $ O(V + VlogV + ElogV) $ 이며,
+- 따라서 총 시간 복잡도는 O(V + VlogV + ElogV) 이며,
   - O(V)는 전체 시간 복잡도에 큰 영향을 미치지 않으므로 삭제,
-  - E > V 이므로 (최대 $ V^2 = E $ 가 될 수 있음), $ O((V + E)logV) $ 는 간단하게 $ O(ElogV) $ 로 나타낼 수 있음
+  - E > V 이므로 (최대 V^2 = E 가 될 수 있음), O((V + E)logV) 는 간단하게 O(ElogV) 로 나타낼 수 있음
