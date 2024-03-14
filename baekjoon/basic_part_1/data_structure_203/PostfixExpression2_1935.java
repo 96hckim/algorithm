@@ -1,9 +1,9 @@
-package basic_part_1.data_structure_201;
+package basic_part_1.data_structure_203;
 
 import java.io.*;
 import java.util.Stack;
 
-public class PostfixExpression_1935 {
+public class PostfixExpression2_1935 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
