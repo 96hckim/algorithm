@@ -1,6 +1,6 @@
 package kit.dfs_bfs
 
-fun main(args: Array<String>) = with(Solution()) {
+fun main(args: Array<String>) = with(Network()) {
     val n1 = 3
     val computers1 = arrayOf(
         intArrayOf(1, 1, 0),
@@ -18,7 +18,7 @@ fun main(args: Array<String>) = with(Solution()) {
     println("Return: ${solution(n2, computers2)}") // 1
 }
 
-class Solution {
+class Network {
     fun solution(n: Int, computers: Array<IntArray>): Int {
         var answer = 0
         val visited = BooleanArray(n) { false }
