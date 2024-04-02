@@ -3,7 +3,7 @@ package level2
 import java.util.*
 
 fun main(args: Array<String>) {
-    val solution = Solution()
+    val solution = RicochetRobot()
 
     val board1 = arrayOf("...D..R", ".D.G...", "....D.D", "D....D.", "..D....")
     println("Result 1: ${solution.solution(board1)}") // 7
@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     println("Result 2: ${solution.solution(board2)}") // -1
 }
 
-class Solution {
+class RicochetRobot {
     data class Position(val x: Int, val y: Int, val distance: Int)
 
     fun solution(board: Array<String>): Int {
