@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="efbac91a-8226-47bc-8f11-4ff83fd071be" name="Changes" comment="gitignore 업데이트">
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BinarySearch/CuttingTrees.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BinarySearch/Eaten.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BinarySearch/InstallingRouter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BinarySearch/TwoSolutions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/InsertingOperators.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/MakingPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NQueen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NtoM1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NtoM2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NtoM3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NtoM4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/NtoM9.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/BruteForce/SumOfPartialSequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/AddOneTwoThree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/AscendingNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/ClimbingStairs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/ExcellentVillage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/MergeFiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/Tiling.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/DynamicProgramming/TreesAndQueries.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/Bucket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/ComplexNumbering.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/DFSandBFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/Escape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/HideAndSeek.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/Laboratory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Graph/Maze.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/ShortestPath/FindMinimumCost.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/ShortestPath/ShortestPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/CleanupFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/DrawingArrows.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/SequenceSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/TestScores.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Sort/WordSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TopologicalSort/ACMCraft.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TopologicalSort/LineUp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Tree/FindParentOfTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/Tree/Tree1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TwoPointers/Cat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TwoPointers/Good.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TwoPointers/ListOfUniqueNumbers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TwoPointers/PartialSum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../campus/src/Algorithm/TwoPointers/TwoSolutions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/programmers.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/binary_search/ImmigrationCheck.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/brute_force/Fatigue.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/brute_force/MinimumRectangle.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/brute_force/PrimeFinder.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/dfs_bfs/Network.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/dfs_bfs/TargetNumber.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/dynamic_programming/ExpressWithN.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/graph/FarthestNode.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/greedy/Joystick.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/hash/BestAlbum.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/hash/Clothes.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/heap/DiskController.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/sort/HIndex.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/sort/LargestNumber.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kit/stack_queue/FeatureDevelopment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/CardBundle.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/Coloring.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/DesktopOrganizer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/DuoCipher.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/MemoryScore.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/MostGiftCount.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/ParkWalk.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/PersonalDataCollectionValidity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/RoughKeyboard.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/RunningRace.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level1/TinySubstring.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/HotelShortStay.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/IntegerPairsBetweenCircles.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/InterceptorSystem.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/MazeEscape.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/MineralMining.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/RicochetRobot.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/SoloTicTacToe.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/SubArraySumFinder.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level2/TaskProceeding.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level3/ContinuousPulseSubsequenceSum.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level3/MazeEscapeCommand.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level3/PerformanceReview.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/level3/TroopReturn.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/DataStructures.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/fortytwodot/Q1.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/fortytwodot/Q2.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/fortytwodot/Q3.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/suresofttech/Q1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/suresofttech/Q2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/suresofttech/Q3.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;96hckim&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/96hckim/algorithm.git&quot;,
+    &quot;accountId&quot;: &quot;4d419022-35ff-4cda-a4cd-fd6c6fa68891&quot;
+  }
+}</component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2eJ6vTU0lYKJIDOenQxSSUK9NQ2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.HelloWorld.executor": "Run",
+    "Application.Q1.executor": "Run",
+    "Application.Q2.executor": "Run",
+    "Application.Q3.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Kotlin.MainKt.executor": "Run",
+    "Kotlin.MostGiftCountKt.executor": "Run",
+    "Kotlin.Q1Kt.executor": "Run",
+    "Kotlin.Test1Kt.executor": "Run",
+    "Kotlin.Test2Kt.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/yp050/IdeaProjects/algorithm/programmers",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\yp050\IdeaProjects\algorithm\programmers\programmers\src\test" />
+      <recent name="C:\Users\yp050\IdeaProjects\algorithm\programmers\programmers\src\test\fortytwodot" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="programmers" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="efbac91a-8226-47bc-8f11-4ff83fd071be" name="Changes" comment="" />
+      <created>1711610568248</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711610568248</updated>
+    </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1711667428620</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711667428620</updated>
+    </task>
+    <task id="LOCAL-00002" summary="가장 많이 받은 선물">
+      <option name="closed" value="true" />
+      <created>1711667440977</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711667440977</updated>
+    </task>
+    <task id="LOCAL-00003" summary="달리기 경주">
+      <option name="closed" value="true" />
+      <created>1711667451508</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711667451508</updated>
+    </task>
+    <task id="LOCAL-00004" summary="추억 점수">
+      <option name="closed" value="true" />
+      <created>1711668489533</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711668489533</updated>
+    </task>
+    <task id="LOCAL-00005" summary="공원 산책">
+      <option name="closed" value="true" />
+      <created>1711672861576</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711672861576</updated>
+    </task>
+    <task id="LOCAL-00006" summary="바탕화면 정리">
+      <option name="closed" value="true" />
+      <created>1711674549815</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711674549815</updated>
+    </task>
+    <task id="LOCAL-00007" summary="덧칠하기">
+      <option name="closed" value="true" />
+      <created>1711676425443</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711676425443</updated>
+    </task>
+    <task id="LOCAL-00008" summary="대충 만든 자판">
+      <option name="closed" value="true" />
+      <created>1711678405924</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711678405924</updated>
+    </task>
+    <task id="LOCAL-00009" summary="카드 뭉치">
+      <option name="closed" value="true" />
+      <created>1711679185887</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711679185887</updated>
+    </task>
+    <task id="LOCAL-00010" summary="둘만의 암호">
+      <option name="closed" value="true" />
+      <created>1711681150438</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711681150438</updated>
+    </task>
+    <task id="LOCAL-00011" summary="개인정보 수집 유효기간">
+      <option name="closed" value="true" />
+      <created>1711684114758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711684114758</updated>
+    </task>
+    <task id="LOCAL-00012" summary="크기가 작은 부분문자열">
+      <option name="closed" value="true" />
+      <created>1711685247044</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711685247044</updated>
+    </task>
+    <task id="LOCAL-00013" summary="연속된 부분 수열의 합">
+      <option name="closed" value="true" />
+      <created>1711857954829</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711857954829</updated>
+    </task>
+    <task id="LOCAL-00014" summary="호텔 대실">
+      <option name="closed" value="true" />
+      <created>1711860898799</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1711860898799</updated>
+    </task>
+    <task id="LOCAL-00015" summary="미로 탈출">
+      <option name="closed" value="true" />
+      <created>1711862329330</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1711862329330</updated>
+    </task>
+    <task id="LOCAL-00016" summary="리코쳇 로봇">
+      <option name="closed" value="true" />
+      <created>1711865361372</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711865361372</updated>
+    </task>
+    <task id="LOCAL-00017" summary="광물 캐기">
+      <option name="closed" value="true" />
+      <created>1711872582662</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711872582662</updated>
+    </task>
+    <task id="LOCAL-00018" summary="과제 진행하기">
+      <option name="closed" value="true" />
+      <created>1711877697043</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711877697043</updated>
+    </task>
+    <task id="LOCAL-00019" summary="두 원 사이의 정수 쌍">
+      <option name="closed" value="true" />
+      <created>1711879587471</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711879587471</updated>
+    </task>
+    <task id="LOCAL-00020" summary="혼자서 하는 틱택토">
+      <option name="closed" value="true" />
+      <created>1711884579574</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711884579574</updated>
+    </task>
+    <task id="LOCAL-00021" summary="요격 시스템">
+      <option name="closed" value="true" />
+      <created>1711886673938</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1711886673938</updated>
+    </task>
+    <task id="LOCAL-00022" summary="미로 탈출 명령어">
+      <option name="closed" value="true" />
+      <created>1711959787990</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1711959787990</updated>
+    </task>
+    <task id="LOCAL-00023" summary="연속 펄스 부분 수열의 합">
+      <option name="closed" value="true" />
+      <created>1711962982104</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1711962982104</updated>
+    </task>
+    <task id="LOCAL-00024" summary="인사고과">
+      <option name="closed" value="true" />
+      <created>1711966545458</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1711966545458</updated>
+    </task>
+    <task id="LOCAL-00025" summary="부대 복귀">
+      <option name="closed" value="true" />
+      <created>1711972386108</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1711972386109</updated>
+    </task>
+    <task id="LOCAL-00026" summary="의상">
+      <option name="closed" value="true" />
+      <created>1712017378570</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1712017378570</updated>
+    </task>
+    <task id="LOCAL-00027" summary="베스트 앨범">
+      <option name="closed" value="true" />
+      <created>1712018502399</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1712018502399</updated>
+    </task>
+    <task id="LOCAL-00028" summary="가장 큰 수">
+      <option name="closed" value="true" />
+      <created>1712020015169</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1712020015169</updated>
+    </task>
+    <task id="LOCAL-00029" summary="H-Index">
+      <option name="closed" value="true" />
+      <created>1712021822657</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1712021822657</updated>
+    </task>
+    <task id="LOCAL-00030" summary="클래스명 변경">
+      <option name="closed" value="true" />
+      <created>1712023342030</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1712023342030</updated>
+    </task>
+    <task id="LOCAL-00031" summary="최소직사각형">
+      <option name="closed" value="true" />
+      <created>1712023353309</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1712023353309</updated>
+    </task>
+    <task id="LOCAL-00032" summary="소수 찾기">
+      <option name="closed" value="true" />
+      <created>1712024315920</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1712024315920</updated>
+    </task>
+    <task id="LOCAL-00033" summary="피로도">
+      <option name="closed" value="true" />
+      <created>1712025429372</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1712025429372</updated>
+    </task>
+    <task id="LOCAL-00034" summary="타겟 넘버">
+      <option name="closed" value="true" />
+      <created>1712027520460</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1712027520460</updated>
+    </task>
+    <task id="LOCAL-00035" summary="네트워크">
+      <option name="closed" value="true" />
+      <created>1712029091101</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1712029091101</updated>
+    </task>
+    <task id="LOCAL-00036" summary="기능개발">
+      <option name="closed" value="true" />
+      <created>1712031189472</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1712031189472</updated>
+    </task>
+    <task id="LOCAL-00037" summary="클래스명 변경">
+      <option name="closed" value="true" />
+      <created>1712053620495</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1712053620495</updated>
+    </task>
+    <task id="LOCAL-00038" summary="디스크 컨트롤러">
+      <option name="closed" value="true" />
+      <created>1712094167740</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1712094167740</updated>
+    </task>
+    <task id="LOCAL-00039" summary="조이스틱">
+      <option name="closed" value="true" />
+      <created>1712094183075</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1712094183075</updated>
+    </task>
+    <task id="LOCAL-00040" summary="가장 먼 노드">
+      <option name="closed" value="true" />
+      <created>1712094202226</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1712094202226</updated>
+    </task>
+    <task id="LOCAL-00041" summary="입국심사">
+      <option name="closed" value="true" />
+      <created>1712094215430</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1712094215430</updated>
+    </task>
+    <task id="LOCAL-00042" summary="N으로 표현">
+      <option name="closed" value="true" />
+      <created>1712094227576</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1712094227576</updated>
+    </task>
+    <task id="LOCAL-00043" summary=".idea add to .gitignore">
+      <option name="closed" value="true" />
+      <created>1719968362888</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1719968362888</updated>
+    </task>
+    <task id="LOCAL-00044" summary="42dot Algorithm Test">
+      <option name="closed" value="true" />
+      <created>1719968403105</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1719968403105</updated>
+    </task>
+    <task id="LOCAL-00045" summary="SureSoftTech Algorithm Test">
+      <option name="closed" value="true" />
+      <created>1719968416719</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1719968416719</updated>
+    </task>
+    <task id="LOCAL-00046" summary="라이브 코딩 테스트 대비 큐, 스택 구현">
+      <option name="closed" value="true" />
+      <created>1719968546502</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1719968546502</updated>
+    </task>
+    <task id="LOCAL-00047" summary="gitignore 업데이트">
+      <option name="closed" value="true" />
+      <created>1721543104426</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1721543104426</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="미로 탈출 명령어" />
+    <MESSAGE value="연속 펄스 부분 수열의 합" />
+    <MESSAGE value="인사고과" />
+    <MESSAGE value="부대 복귀" />
+    <MESSAGE value="의상" />
+    <MESSAGE value="베스트 앨범" />
+    <MESSAGE value="가장 큰 수" />
+    <MESSAGE value="H-Index" />
+    <MESSAGE value="최소직사각형" />
+    <MESSAGE value="소수 찾기" />
+    <MESSAGE value="피로도" />
+    <MESSAGE value="타겟 넘버" />
+    <MESSAGE value="네트워크" />
+    <MESSAGE value="기능개발" />
+    <MESSAGE value="클래스명 변경" />
+    <MESSAGE value="디스크 컨트롤러" />
+    <MESSAGE value="조이스틱" />
+    <MESSAGE value="가장 먼 노드" />
+    <MESSAGE value="입국심사" />
+    <MESSAGE value="N으로 표현" />
+    <MESSAGE value=".idea add to .gitignore" />
+    <MESSAGE value="42dot Algorithm Test" />
+    <MESSAGE value="SureSoftTech Algorithm Test" />
+    <MESSAGE value="라이브 코딩 테스트 대비 큐, 스택 구현" />
+    <MESSAGE value="gitignore 업데이트" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore 업데이트" />
+  </component>
+</project>
