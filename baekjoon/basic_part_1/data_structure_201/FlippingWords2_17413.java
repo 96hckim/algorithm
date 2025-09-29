@@ -1,82 +1,49 @@
 package basic_part_1.data_structure_201;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class FlippingWords2_17413 {
-    enum StringType {
-        WORD, TAG
-    }
-
-    static class FlippingWord {
-        StringType type;
-        StringBuilder sb;
-
-        public FlippingWord(StringType type, StringBuilder sb) {
-            this.type = type;
-            this.sb = sb;
-        }
-    }
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String input = br.readLine();
+        String S = br.readLine();
 
-        ArrayList<FlippingWord> words = new ArrayList<>();
-        FlippingWord fw = null;
+        StringBuilder result = new StringBuilder();
+        StringBuilder word = new StringBuilder();
 
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
+        boolean inTag = false; // 태그 안 여부 체크
 
-            switch (c) {
-                case ' ':
-                    if (fw != null) {
-                        if (fw.type == StringType.WORD) {
-                            words.add(fw);
-                            fw = null;
-                            words.add(new FlippingWord(StringType.TAG, new StringBuilder(" ")));
-                        } else {
-                            fw.sb.append(" ");
-                        }
-                    }
-                    break;
-                case '<':
-                    if (fw != null) {
-                        words.add(fw);
-                    }
-                    fw = new FlippingWord(StringType.TAG, new StringBuilder("<"));
-                    break;
-                case '>':
-                    if (fw != null) {
-                        fw.sb.append(">");
-                        words.add(fw);
-                        fw = null;
-                    }
-                    break;
-                default:
-                    if (fw == null) {
-                        fw = new FlippingWord(StringType.WORD, new StringBuilder());
-                    }
-                    fw.sb.append(c);
-                    break;
+        for (char c : S.toCharArray()) {
+            if (c == '<') {
+                // 단어가 있으면 뒤집어서 출력 버퍼에 추가
+                result.append(word.reverse());
+                word.setLength(0);
+                inTag = true;
+                result.append(c);
+            } else if (c == '>') {
+                inTag = false;
+                result.append(c);
+            } else if (inTag) {
+                result.append(c); // 태그 안은 그대로
+            } else {
+                if (c == ' ') {
+                    // 단어 끝나면 뒤집어서 추가
+                    result.append(word.reverse());
+                    word.setLength(0);
+                    result.append(c);
+                } else {
+                    word.append(c);
+                }
             }
         }
 
-        if (fw != null) {
-            words.add(fw);
-        }
+        result.append(word.reverse());
 
-        for (FlippingWord word : words) {
-            if (word.type == StringType.WORD) {
-                word.sb.reverse();
-            }
-            bw.write(word.sb.toString());
-        }
+        bw.write(result.toString());
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

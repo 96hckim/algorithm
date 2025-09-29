@@ -10,41 +10,41 @@ public class Editor_1406 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String initString = br.readLine();
         LinkedList<Character> editor = new LinkedList<>();
 
-        for (int i = 0; i < initString.length(); i++) {
-            editor.add(initString.charAt(i));
+        String initial = br.readLine();
+        for (char c : initial.toCharArray()) {
+            editor.add(c);
         }
 
         ListIterator<Character> listIterator = editor.listIterator(editor.size());
 
-        int m = Integer.parseInt(br.readLine());
-
-        for (int i = 0; i < m; i++) {
+        int M = Integer.parseInt(br.readLine());
+        for (int i = 0; i < M; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            char command = st.nextToken().charAt(0);
+            String cmd = st.nextToken();
 
-            switch (command) {
-                case 'L':
+            switch (cmd) {
+                case "L" -> {
                     if (listIterator.hasPrevious()) {
                         listIterator.previous();
                     }
-                    break;
-                case 'D':
+                }
+                case "D" -> {
                     if (listIterator.hasNext()) {
                         listIterator.next();
                     }
-                    break;
-                case 'B':
+                }
+                case "B" -> {
                     if (listIterator.hasPrevious()) {
                         listIterator.previous();
                         listIterator.remove();
                     }
-                    break;
-                case 'P':
-                    listIterator.add(st.nextToken().charAt(0));
-                    break;
+                }
+                case "P" -> {
+                    char c = st.nextToken().charAt(0);
+                    listIterator.add(c);
+                }
             }
         }
 
@@ -52,8 +52,8 @@ public class Editor_1406 {
             bw.write(c);
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

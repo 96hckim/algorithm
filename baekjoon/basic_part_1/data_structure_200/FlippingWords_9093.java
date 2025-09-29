@@ -12,17 +12,16 @@ public class FlippingWords_9093 {
 
         for (int i = 0; i < T; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-
             while (st.hasMoreTokens()) {
-                StringBuilder sb = new StringBuilder(st.nextToken());
-                bw.write(sb.reverse() + " ");
+                String word = st.nextToken();
+                String reversed = new StringBuilder(word).reverse().toString();
+                bw.write(reversed + " ");
             }
-
             bw.newLine();
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

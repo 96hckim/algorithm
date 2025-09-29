@@ -1,7 +1,8 @@
 package basic_part_1.data_structure_200;
 
 import java.io.*;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Queue_10845 {
@@ -9,54 +10,25 @@ public class Queue_10845 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+        Deque<Integer> queue = new ArrayDeque<>();
+
         int N = Integer.parseInt(br.readLine());
-
-        LinkedList<String> queue = new LinkedList<>();
-
         for (int i = 0; i < N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            String command = st.nextToken();
+            String cmd = st.nextToken();
 
-            switch (command) {
-                case "push":
-                    queue.add(st.nextToken());
-                    break;
-                case "pop":
-                    if (queue.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(queue.removeFirst());
-                    }
-                    bw.newLine();
-                    break;
-                case "size":
-                    bw.write(queue.size() + "\n");
-                    break;
-                case "empty":
-                    bw.write(queue.isEmpty() ? "1" : "0");
-                    bw.newLine();
-                    break;
-                case "front":
-                    if (queue.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(queue.getFirst());
-                    }
-                    bw.newLine();
-                    break;
-                case "back":
-                    if (queue.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(queue.getLast());
-                    }
-                    bw.newLine();
-                    break;
+            switch (cmd) {
+                case "push" -> queue.offer(Integer.parseInt(st.nextToken()));
+                case "pop" -> bw.write((queue.isEmpty() ? -1 : queue.poll()) + "\n");
+                case "size" -> bw.write(queue.size() + "\n");
+                case "empty" -> bw.write((queue.isEmpty() ? 1 : 0) + "\n");
+                case "front" -> bw.write((queue.isEmpty() ? -1 : queue.peekFirst()) + "\n");
+                case "back" -> bw.write((queue.isEmpty() ? -1 : queue.peekLast()) + "\n");
             }
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

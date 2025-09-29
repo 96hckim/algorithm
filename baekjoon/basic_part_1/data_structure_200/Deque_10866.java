@@ -10,65 +10,27 @@ public class Deque_10866 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
+        Deque<Integer> deque = new ArrayDeque<>();
+
         int N = Integer.parseInt(br.readLine());
-
-        Deque<String> deque = new ArrayDeque<>();
-
         for (int i = 0; i < N; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            String command = st.nextToken();
+            String cmd = st.nextToken();
 
-            switch (command) {
-                case "push_front":
-                    deque.addFirst(st.nextToken());
-                    break;
-                case "push_back":
-                    deque.addLast(st.nextToken());
-                    break;
-                case "pop_front":
-                    if (deque.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(deque.removeFirst());
-                    }
-                    bw.newLine();
-                    break;
-                case "pop_back":
-                    if (deque.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(deque.removeLast());
-                    }
-                    bw.newLine();
-                    break;
-                case "size":
-                    bw.write(deque.size() + "\n");
-                    break;
-                case "empty":
-                    bw.write(deque.isEmpty() ? "1" : "0");
-                    bw.newLine();
-                    break;
-                case "front":
-                    if (deque.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(deque.getFirst());
-                    }
-                    bw.newLine();
-                    break;
-                case "back":
-                    if (deque.isEmpty()) {
-                        bw.write("-1");
-                    } else {
-                        bw.write(deque.getLast());
-                    }
-                    bw.newLine();
-                    break;
+            switch (cmd) {
+                case "push_front" -> deque.addFirst(Integer.parseInt(st.nextToken()));
+                case "push_back" -> deque.addLast(Integer.parseInt(st.nextToken()));
+                case "pop_front" -> bw.write((deque.isEmpty() ? -1 : deque.removeFirst()) + "\n");
+                case "pop_back" -> bw.write((deque.isEmpty() ? -1 : deque.removeLast()) + "\n");
+                case "size" -> bw.write(deque.size() + "\n");
+                case "empty" -> bw.write((deque.isEmpty() ? 1 : 0) + "\n");
+                case "front" -> bw.write((deque.isEmpty() ? -1 : deque.getFirst()) + "\n");
+                case "back" -> bw.write((deque.isEmpty() ? -1 : deque.getLast()) + "\n");
             }
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

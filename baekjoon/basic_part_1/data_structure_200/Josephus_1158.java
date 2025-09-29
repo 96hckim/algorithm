@@ -14,24 +14,27 @@ public class Josephus_1158 {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
-        Queue<Integer> numbers = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i <= N; i++) {
-            numbers.add(i);
+            queue.offer(i);
         }
 
         bw.write("<");
-        while (numbers.size() != 1) {
-            for (int i = 0; i < K - 1; i++) {
-                numbers.offer(numbers.poll());
-            }
 
-            bw.write(numbers.poll() + ", ");
+        while (!queue.isEmpty()) {
+            for (int i = 0; i < (K - 1); i++) {
+                queue.offer(queue.poll());
+            }
+            bw.write(String.valueOf(queue.poll()));
+            if (!queue.isEmpty()) {
+                bw.write(", ");
+            }
         }
-        bw.write(numbers.poll() + "");
+
         bw.write(">");
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

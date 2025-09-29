@@ -2,6 +2,7 @@ package basic_part_1.data_structure_200;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 public class StackSequence_1874 {
@@ -10,35 +11,34 @@ public class StackSequence_1874 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int n = Integer.parseInt(br.readLine());
-
-        ArrayList<String> commands = new ArrayList<>(n);
         Stack<Integer> stack = new Stack<>();
-        int index = 1;
+        int current = 1;
+        List<String> result = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            int num = Integer.parseInt(br.readLine());
+            int target = Integer.parseInt(br.readLine());
 
-            for (; index <= num; index++) {
-                stack.push(index);
-                commands.add("+\n");
+            while (current <= target) {
+                stack.push(current++);
+                result.add("+\n");
             }
 
-            if (stack.peek() == num) {
+            if (stack.peek() == target) {
                 stack.pop();
-                commands.add("-\n");
+                result.add("-\n");
             } else {
-                commands.clear();
-                commands.add("NO");
+                result.clear();
+                result.add("NO");
                 break;
             }
         }
 
-        for (String command : commands) {
-            bw.write(command);
+        for (String op : result) {
+            bw.write(op);
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }

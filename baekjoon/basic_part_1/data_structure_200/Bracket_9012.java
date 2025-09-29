@@ -10,34 +10,24 @@ public class Bracket_9012 {
         int T = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < T; i++) {
-            char[] data = br.readLine().toCharArray();
-            int count = 0;
+            String line = br.readLine();
+            char[] brackets = line.toCharArray();
+            int bracketCount = 0;
 
-            for (char c : data) {
-                switch (c) {
-                    case '(':
-                        count++;
-                        break;
-                    case ')':
-                        count--;
-                        break;
+            for (char bracket : brackets) {
+                switch (bracket) {
+                    case '(' -> bracketCount++;
+                    case ')' -> bracketCount--;
                 }
-
-                if (count < 0) {
-                    break;
-                }
+                if (bracketCount < 0) break;
             }
 
-            if (count == 0) {
-                bw.write("YES");
-            } else {
-                bw.write("NO");
-            }
+            bw.write(bracketCount == 0 ? "YES" : "NO");
             bw.newLine();
         }
 
-        br.close();
         bw.flush();
+        br.close();
         bw.close();
     }
 }
